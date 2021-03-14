@@ -1,0 +1,31 @@
+.dev_title{
+    font-weight: 200;
+}
+
+.dev_home_photo{
+    height: 100vh;
+    padding: 0px;
+}
+
+.sidebar{
+    font-size: larger;
+    font-weight: 500;
+    height: 100vh;
+}
+
+.nav-link.active {
+    color: #007bff;
+}
+
+.nav-link {
+    color: #333;
+}
+
+.feather {
+    margin-right: 4px;
+    color: #999;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+

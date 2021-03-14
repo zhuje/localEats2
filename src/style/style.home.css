@@ -1,0 +1,49 @@
+
+#wrapper {
+    padding: 0px 0;
+    /*position: absolute;*/
+    color: black;
+    top: 88px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%
+}
+
+.dev_home_container{
+    padding: 0px;
+}
+
+
+div.dev_transbox {
+    margin: 10px;
+    padding: 57px;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0.8;
+    color: white;
+    width: 50%;
+}
+
+.dev_background {
+    /*background: url(https://www.readersdigest.ca/wp-content/uploads/2016/05/what-different-flowers-mean-scaled.jpg) repeat center;*/
+    background: url(https://images.squarespace-cdn.com/content/v1/58a477a229687f7131851d49/1488227252032-UC5ALN1IEABT21OSS66B/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/Beacon+Hill.jpg?format=2500w)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#wrapper {
+    padding: 0px 0;
+    /*position: absolute;*/
+    color: black;
+    top: 88px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%
+}
+
+#content {
+    min-height: 100%;
+}
