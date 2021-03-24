@@ -66,6 +66,15 @@ export default class App extends React.Component{
                         <div className="dev_background">
                             <div className="dev_transbox">
 
+                                <h1> Welcome to Local Eats </h1>
+                                <p> We're dedicated to helping you find local eateries
+                                    within your Boston neighborhood. The economic fallout
+                                    of COVID has caused many small locally owned restaurants
+                                    to close. As a result we are creating a website to
+                                    assist patrons in identifying and supporting their local
+                                    economies by eating local!
+                                </p>
+
                                 <h1> Select a Neighborhood : </h1>
                                 <form>
                                     <input type="checkbox" id="allston" name="allston" value="allston"/>
@@ -81,16 +90,8 @@ export default class App extends React.Component{
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
-
-
-
         )
     }
 
