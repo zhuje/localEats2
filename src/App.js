@@ -49,7 +49,7 @@ export default class App extends React.Component{
                                         <a className="nav-link" href="promotions">
                                             <i className="feather fa fa-money " aria-hidden="true"></i>
                                             &nbsp;
-                                            Promotions
+                                            Find Promotions
                                         </a>
                                     </li>
                                     {/* Profile */}
@@ -57,7 +57,7 @@ export default class App extends React.Component{
                                         <a className="nav-link" href="profile">
                                             <i className="fa fa-user-circle-o" aria-hidden="true"></i>
                                             &nbsp;
-                                            Profile
+                                            Adjust Profile
                                         </a>
                                     </li>
                                     {/* Logout */}
