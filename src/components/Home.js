@@ -9,7 +9,7 @@ export default class Home extends React.Component {
                 <div className="col-md-9 dev_home_container" >
                     <div className="dev_background">
                         <div className="dev_transbox">
-                            <h1> Welcome to Local Eats </h1>
+                            <h1 className="dev_title"> Welcome to Local Eats </h1>
                             <p> We're dedicated to helping you find local eateries
                                 within your Boston neighborhood. The economic fallout
                                 of COVID has caused many small locally owned restaurants
@@ -18,7 +18,7 @@ export default class Home extends React.Component {
                                 economies by eating local!
                             </p>
 
-                            <h1> Select a Neighborhood : </h1>
+                            <h1 className="dev_title"> Select a Neighborhood : </h1>
                             <form>
                                 <input type="checkbox" id="allston" name="allston" value="allston"/>
                                 <label htmlFor="allston"> &nbsp; Allston </label> <br/>
