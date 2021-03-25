@@ -10,10 +10,10 @@ This will automatically open [http://localhost:3000](http://localhost:3000) to v
 
 ### File Structure 
 This website is created as a single page application. Components are rendered as they are called. 
-- Components File : Holds the HTML and logic of the components. 
-- Style File : Holds the css (styling) for each corresponding component. 
-
-\
+- Components Directory : Holds the HTML and logic of the components. 
+- Style Directory : Holds the css (styling) for each corresponding component. 
+- index.js : Is the the file that first loads when the application launches, calls App.js .
+- App.js : Is the container that holds all the other components along with navigation bars. 
 
 
 # Getting Started with Create React App
