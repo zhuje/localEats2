@@ -6,16 +6,17 @@ import '../style/style.home.css'
 export default class Home extends React.Component {
     render(){
         return (
-                <div className="col-md-9 dev_home_container" >
+                <div className="col-sm-12 col-md-9">
                     <div className="dev_background">
                         <div className="dev_transbox">
                             <h1 className="dev_title"> Welcome to Local Eats </h1>
                             <p> We're dedicated to helping you find local eateries
                                 within your Boston neighborhood. The economic fallout
-                                of COVID has caused many small locally owned restaurants
+                                of COVID has caused many small, locally owned restaurants
                                 to close. As a result we are creating a website to
                                 assist patrons in identifying and supporting their local
                                 economies by eating local!
+
                             </p>
 
                             <h1 className="dev_title"> Select a Neighborhood : </h1>
