@@ -10,3 +10,18 @@
 .dev_button_spacing{
     margin: 5px;
 }
+
+.dev_filters_row{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dev_search_title{
+    margin: 30px;
+}
+
+.dev_img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}
