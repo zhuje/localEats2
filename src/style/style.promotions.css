@@ -1,3 +1,11 @@
 .dev_myspacing{
-    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.rowC{display:flex; flex-direction:row;}
+
+.promoCard {
+    height: 150px;
+    width: 200px;
 }
