@@ -3,8 +3,9 @@
 }
 
 .dev_placeholder{
-    margin: 30px;
-    border: solid black;
+    margin: 20px 0px;
+    border: solid lightgrey;
+    border-radius: .2rem;
 }
 
 .dev_button_spacing{
@@ -12,7 +13,7 @@
 }
 
 .dev_filters_row{
-    margin-left: 10px;
+    margin-left: 15px;
     margin-right: 10px;
 }
 
@@ -24,4 +25,8 @@
     height: 400px;
     width: 400px;
     object-fit: cover;
+}
+
+.dev_card{
+    margin-top: 10px;
 }

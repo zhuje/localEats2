@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Promotions from "./components/Promotions"
 import Profile from "./components/Profile"
 import SearchResult from "./components/SearchResult"
+import Map from "./components/Map";
 
 
 export default class App extends React.Component{
@@ -26,7 +27,7 @@ export default class App extends React.Component{
                                placeholder="Search for an eatery name or type" aria-label="Search"/>
                         <ul className="navbar-nav px-3">
                             <li className="nav-item text-nowrap ">
-                                <a className="nav-link"   href="#">Submit</a>
+                                <a className="nav-link"   href="/search">Submit</a>
                             </li>
                         </ul>
                     </nav>
@@ -88,6 +89,8 @@ export default class App extends React.Component{
                         <Route path="/promotions" exact component={Promotions}/>
                         <Route path="/profile" exact component={Profile}/>
                         <Route path="/search" exact component={SearchResult}/>
+                        <Route path="/map" exact component={Map}/>
+
 
 
                         {/* Collapse NavBar w/Hamburger */}
