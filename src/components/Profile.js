@@ -45,17 +45,17 @@ export default class Profile extends React.Component {
 
                             </div>
                             <div className="col">
-                                <h2 className="dev_title"> Preferred Neighborhoods: </h2>
+                                <h2 className="dev_title"> Preferred Restaurants: </h2>
                                 <form>
                                     <input type="checkbox" id="allston" name="allston"
                                            value="allston"/>
-                                    <label htmlFor="allston"> &nbsp; Allston </label> <br/>
+                                    <label htmlFor="allston"> &nbsp; American </label> <br/>
                                     <input type="checkbox" id="backbay" name="backbay"
                                            value="backbay"/>
-                                    <label htmlFor="backbay"> &nbsp; Back Bay </label> <br/>
+                                    <label htmlFor="backbay"> &nbsp; Asian </label> <br/>
                                     <input type="checkbox" id="jamaica" name="jamaica"
                                            value="jamaica"/>
-                                    <label htmlFor="jamaica"> &nbsp; Jamaica Plain </label> <br/>
+                                    <label htmlFor="jamaica"> &nbsp; Garbage </label> <br/>
                                 </form>
 
                                 <h2 className="dev_title"> Preferred Price Range: </h2>
