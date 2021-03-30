@@ -1,13 +1,12 @@
 import React from "react";
 import './style/style.app.css';
-import {BrowserRouter, Link } from "react-router-dom";
-import Route from "react-router-dom/es/Route";
+import {BrowserRouter, Link, Route} from "react-router-dom";
 import Home from "./components/Home"
 import Promotions from "./components/Promotions"
 import Profile from "./components/Profile"
 import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
-
+import Stories from "./components/Stories"
 
 export default class App extends React.Component{
 
@@ -80,6 +79,15 @@ export default class App extends React.Component{
                                         </a>
                                     </li>
 
+                                    {/* Search Result  */}
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="stories">
+                                            <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                            &nbsp;
+                                            View Featured Eateries
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </div>
                         </nav>
@@ -90,6 +98,7 @@ export default class App extends React.Component{
                         <Route path="/profile" exact component={Profile}/>
                         <Route path="/search" exact component={SearchResult}/>
                         <Route path="/map" exact component={Map}/>
+                        <Route path="/stories" exact component={Stories}/>
 
 
 
