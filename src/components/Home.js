@@ -10,7 +10,7 @@ export default class Home extends React.Component {
 
     render(){
         return (
-                <div className="col-sm-12 col-md-9">
+                <div className="col-sm-12 col-md-9 dev_home_container">
                     <div className="dev_background">
                         <div className="dev_transbox">
 
@@ -34,17 +34,17 @@ export default class Home extends React.Component {
 
                             <Link to="/search" className="btn btn-primary"> Submit </Link>
 
-                            <br/><br/>
-                            <h2 className="dev_title"> New to Boston? </h2>
-                            <h5 className="dev_title" > Look at the Map to Find your Neighborhood  </h5>
-                            <Link to="/map" className="btn btn-primary"> Go To Map </Link>
+                            {/*<br/><br/>*/}
+                            {/*<h2 className="dev_title"> New to Boston? </h2>*/}
+                            {/*<h5 className="dev_title" > Look at the Map to Find your Neighborhood  </h5>*/}
+                            {/*<Link to="/map" className="btn btn-primary"> Go To Map </Link>*/}
 
-                            <br/><br/>
-                            <h2 className="dev_title"> Featured Restaurants that needs your Support  </h2>
-                            <h5 className="dev_title" > We've Highlighted Eateries that Need More Patronage   </h5>
-                            <Link to="/map" className="btn btn-primary"> Go To Highlights </Link>
+                            {/*<br/><br/>*/}
+                            {/*<h2 className="dev_title"> Featured Restaurants that needs your Support  </h2>*/}
+                            {/*<h5 className="dev_title" > We've Highlighted Eateries that Need More Patronage   </h5>*/}
+                            {/*<Link to="/map" className="btn btn-primary"> Go To Highlights </Link>*/}
 
-                            <hr className="my-4"/>
+                            <hr className="my-4" style={{color:"white"}}/>
 
                             <h3 className="dev_title"> About </h3>
                             <h5 className="dev_title"> Need </h5>

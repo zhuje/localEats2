@@ -119,6 +119,7 @@ export default class SearchResult extends React.Component{
 
 
 
+
                     {/*    /!* Filter by Eatery *!/*/}
                     {/*    <DropdownButton className="dev_filters_row" id="dropdown-basic-button" title="Filter by Eatery Type">*/}
                     {/*        <Dropdown.Item href="#/action-1">American</Dropdown.Item>*/}

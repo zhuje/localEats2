@@ -71,22 +71,22 @@ export default class App extends React.Component{
 
 
                                     {/* Search Result  */}
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="search">
-                                            <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                            &nbsp;
-                                            Search Result
-                                        </a>
-                                    </li>
+                                    {/*<li className="nav-item">*/}
+                                    {/*    <a className="nav-link" href="search">*/}
+                                    {/*        <i className="fa fa-sign-out" aria-hidden="true"></i>*/}
+                                    {/*        &nbsp;*/}
+                                    {/*        Search Result*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
 
                                     {/* Search Result  */}
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="stories">
-                                            <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                            &nbsp;
-                                            View Featured Eateries
-                                        </a>
-                                    </li>
+                                    {/*<li className="nav-item">*/}
+                                    {/*    <a className="nav-link" href="stories">*/}
+                                    {/*        <i className="fa fa-sign-out" aria-hidden="true"></i>*/}
+                                    {/*        &nbsp;*/}
+                                    {/*        View Featured Eateries*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
 
                                 </ul>
                             </div>
