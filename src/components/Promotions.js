@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from "react-bootstrap/Dropdown";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import "../style/style.promotions.css"
-import {CardDeck, Card, ListGroupItem, ListGroup, Button} from "react-bootstrap";
 
 export default class Promotions extends React.Component {
     render() {
