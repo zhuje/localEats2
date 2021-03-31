@@ -26,9 +26,9 @@ export default class Home extends React.Component {
                             <form>
                                 <input type="checkbox" id="allston" name="allston" value="allston"/>
                                 <label htmlFor="allston"> &nbsp; Allston </label> <br/>
-                                <input type="checkbox" id="backbay" name="backbay" value="backbay"/>
+                                <input type="checkbox" disabled={true} id="backbay" name="backbay" value="backbay"/>
                                 <label htmlFor="backbay"> &nbsp; Back Bay </label> <br/>
-                                <input type="checkbox" id="jamaica" name="jamaica" value="jamaica"/>
+                                <input type="checkbox" disabled={true} id="jamaica" name="jamaica" value="jamaica"/>
                                 <label htmlFor="jamaica"> &nbsp; Jamaica Plain </label> <br/>
                             </form>
 

@@ -48,3 +48,8 @@
 .col-sm{
     margin-bottom: 10px;
 }
+
+.search-wrapper {
+    background-color: ghostwhite;
+    margin-top: 10px;
+}

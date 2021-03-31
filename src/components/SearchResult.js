@@ -4,6 +4,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import {GoogleMap, withScriptjs, withGoogleMap} from "react-google-maps"
 import {Link} from "react-router-dom";
+import Popup from "reactjs-popup";
+import {Multiselect} from "multiselect-react-dropdown";
 
 
 function Map(){
@@ -23,20 +25,26 @@ let showMyComponent = false;
 
 export default class SearchResult extends React.Component{
 
+
     state = {
         show: false,
+        outdoor_filtered: false,
+        open_filtered: false,
+        eatery_options: [{name: 'Asian', id: 1},{name: 'American', id: 2}, {name: 'Mexican', id: 3}],
+        delivery_options: [{name: 'Delivery', id: 1},{name: 'Curbside Pickup', id: 2}, {name: 'Indoor Pickup', id: 3}],
+        outdoor_options: [{name: 'Outdoor Dining Available', id: 1}],
+        openNow_options: [{name: 'Show Eateries Open Now', id: 1}],
     }
 
     toggle = () => this.setState((currentState) => ({show: !currentState.show}));
+    outdoor_dining_filtered = () => this.setState((currentState) => ({outdoor_filtered: !currentState.outdoor_filtered}));
+    openNow_filtered = () => this.setState((currentState) => ({open_filtered: !currentState.open_filtered}));
 
 
 
     render(){
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
-
-
-
                 <div className="dev_search_title">
 
                     {/* Heading */}
@@ -54,42 +62,124 @@ export default class SearchResult extends React.Component{
                     <hr className="my-4"/>
 
 
-
                     {/* Filters */}
                     <h3 className="dev_title"> Refine Your Search: </h3>
                     <div className="row">
-                        {/* Filter by Eatery */}
-                        <DropdownButton className="dev_filters_row" id="dropdown-basic-button" title="Filter by Eatery Type">
-                            <Dropdown.Item href="#/action-1">American</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Asian</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Mexican</Dropdown.Item>
-                        </DropdownButton>
-                        {/* Filter by Delivery/Pickup Type */}
-                        <DropdownButton className="dev_filters_row"  id="dropdown-basic-button" title="Filter by ">
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                        </DropdownButton>
-                        {/* Show Map */}
-                        <Link to="/search" className="dev_filters_row btn btn-primary"> Outdoor </Link>
-                        {/* Toggle Open Now */}
-                        <Link to="/search" className="dev_filters_row btn btn-primary"> Open Now </Link>
+
+                        <div className="col">
+                            <Multiselect
+                                options={this.state.eatery_options} // Options to display in the dropdown
+                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                onSelect={this.onSelect} // Function will trigger on select event
+                                onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                                placeholder={"Filter for Eatery Type"}
+                                showArrow={true}
+                                avoidHighlightFirstOption={true}
+                            />
+                        </div>
+                        <div className="col">
+
+                            <Multiselect
+                                options={this.state.delivery_options} // Options to display in the dropdown
+                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                onSelect={this.onSelect} // Function will trigger on select event
+                                onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                                placeholder={"Filter for Delivery Type"}
+                                showArrow={true}
+                                avoidHighlightFirstOption={true}
+
+                            />
+                        </div>
+                        <div className="col">
+                            <Multiselect
+                                options={this.state.outdoor_options} // Options to display in the dropdown
+                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                onSelect={this.onSelect} // Function will trigger on select event
+                                onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                                placeholder={"Filter for Outdoor Dining"}
+                                showArrow={true}
+                                avoidHighlightFirstOption={true}
+                            />
+                        </div>
+                        <div className="col">
+                            <Multiselect
+                                options={this.state.openNow_options} // Options to display in the dropdown
+                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                onSelect={this.onSelect} // Function will trigger on select event
+                                onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                                placeholder={"Filter for Open Now"}
+                                showArrow={true}
+                                avoidHighlightFirstOption={true}
+                            />
+                        </div>
+
+
+
+                    {/*    /!* Filter by Eatery *!/*/}
+                    {/*    <DropdownButton className="dev_filters_row" id="dropdown-basic-button" title="Filter by Eatery Type">*/}
+                    {/*        <Dropdown.Item href="#/action-1">American</Dropdown.Item>*/}
+                    {/*        <Dropdown.Item href="#/action-2">Asian</Dropdown.Item>*/}
+                    {/*        <Dropdown.Item href="#/action-3">Mexican</Dropdown.Item>*/}
+                    {/*    </DropdownButton>*/}
+                    {/*    /!* Filter by Delivery/Pickup Type *!/*/}
+                    {/*    <DropdownButton className="dev_filters_row"  id="dropdown-basic-button" title="Filter by ">*/}
+                    {/*        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>*/}
+                    {/*        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*/}
+                    {/*        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
+                    {/*    </DropdownButton>*/}
+
+
+                    {/*    /!* Outdoor Dining *!/*/}
+                    {/*    <Link className="dev_filters_row btn btn-primary" onClick={this.outdoor_dining_filtered}>*/}
+                    {/*         {this.state.outdoor_filtered ? 'Undo Outdoor Dining Filter' : 'Filter for Outdoor Dining'}*/}
+                    {/*    </Link>*/}
+
+
+
+
+                    {/*    <Link to="/search" className="dev_filters_row btn btn-primary"> Outdoor </Link>*/}
+                    {/*    /!* Toggle Open Now *!/*/}
+                    {/*    <Link to="/search" className="dev_filters_row btn btn-primary"> Open Now </Link>*/}
+
+
+
+
                     </div>
+
+
+
                     <div className= "dev_filters_m_row row">
-                        <Link to="/search" className="dev_filters_row btn btn-success"> Submit Filter </Link>
+                        <Popup trigger={<button className=" dev_filters_row btn btn-success"> Apply Filters </button>} position="right center">
+                            <div> In future implementation this will trigger and onClick event to filter
+                                the list of restaurants below with the given parameters. </div>
+                        </Popup>
+                        <Popup trigger={<button className=" dev_filters_row btn btn-danger"> Clear Filters </button>} position="right center">
+                            <div> In future implementation this will trigger and onClick event to clear all
+                            filtered previously applied. </div>
+                        </Popup>
+
                     </div>
 
                     <br/>
                     <h3 className="dev_title"> View Map of Eateries in this Neighborhood: </h3>
+
                     {/* Show Map */}
                     <Link className="btn btn-success" onClick={this.toggle}>
                         Map: {this.state.show ? 'Hide' : 'Show'}
                     </Link>
-                    {this.state.show &&
-                     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>
-                    }
+                    <div>
+                        <br/>
+                        {this.state.show &&
+                           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>
+                        }
+                    </div>
+
                     <br/>
-                    <br/>
+
 
 
 
@@ -102,7 +192,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             {/* Heading */}
                             <h3 className="dev_title"> 1 Mala  </h3>
-                            <Link to={"http://www.allstonmala.com/menu.html"}> View Menu </Link>
+                            <a href={"http://www.allstonmala.com/menu.html"}> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -150,7 +240,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             <h3 className="dev_title"> 2 Lulu's </h3>
 
-                            <Link to={"https://www.lulusallston.com/menu.html"}> View Menu </Link>
+                            <a href={"https://www.lulusallston.com/menu.html"}> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -200,7 +290,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             <h3 className="dev_title"> 3 Lone Star Taco Bar </h3>
 
-                            <Link to={"https://www.toasttab.com/lonestar-allston/v3"}> View Menu </Link>
+                            <a href={"https://www.toasttab.com/lonestar-allston/v3"}> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -212,7 +302,7 @@ export default class SearchResult extends React.Component{
                                         <p>
                                             Yelp Rating: <br/>
                                             <a href="https://www.yelp.com/biz/lone-star-taco-bar-allston">
-                                                4 out of 5 Stars (495 Reviews)
+                                                4 out of 5 Stars (535 Reviews)
                                             </a>
                                         </p>
                                         <p>
