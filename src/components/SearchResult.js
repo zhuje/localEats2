@@ -1,26 +1,9 @@
 import React from "react";
 import "../style/style.searchresult.css"
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import {GoogleMap, withScriptjs, withGoogleMap} from "react-google-maps"
 import {Link} from "react-router-dom";
 import Popup from "reactjs-popup";
+import 'reactjs-popup/dist/index.css';
 import {Multiselect} from "multiselect-react-dropdown";
-
-
-function Map(){
-    return(
-        <GoogleMap
-            defaultZoom={10}
-            defaultCenter={{lat: 42.3539, lng: -71.1337 }}
-        />
-    );
-}
-
-const WrappedMap = withScriptjs(withGoogleMap(Map));
-
-let showMyComponent = false;
-
 
 
 export default class SearchResult extends React.Component{
@@ -33,13 +16,10 @@ export default class SearchResult extends React.Component{
         eatery_options: [{name: 'Asian', id: 1},{name: 'American', id: 2}, {name: 'Mexican', id: 3}],
         delivery_options: [{name: 'Delivery', id: 1},{name: 'Curbside Pickup', id: 2}, {name: 'Indoor Pickup', id: 3}],
         outdoor_options: [{name: 'Outdoor Dining Available', id: 1}],
-        openNow_options: [{name: 'Show Eateries Open Now', id: 1}],
+        openNow_options: [{name: 'Only Show Eateries Open Now', id: 1}],
     }
 
     toggle = () => this.setState((currentState) => ({show: !currentState.show}));
-    outdoor_dining_filtered = () => this.setState((currentState) => ({outdoor_filtered: !currentState.outdoor_filtered}));
-    openNow_filtered = () => this.setState((currentState) => ({open_filtered: !currentState.open_filtered}));
-
 
 
     render(){
@@ -49,7 +29,7 @@ export default class SearchResult extends React.Component{
 
                     {/* Heading */}
                     <h1 className="dev_title"> Neighborhood Selected: Allston </h1>
-
+                    {/* Graphic of Allston */}
                     {/*<div className="card dev_card">*/}
                     {/*    /!* Card1 *!/*/}
                     {/*    <div className="card-body">*/}
@@ -58,14 +38,12 @@ export default class SearchResult extends React.Component{
                     {/*        </div>*/}
                     {/*    </div>*/}
                     {/*</div>*/}
-
                     <hr className="my-4"/>
 
 
                     {/* Filters */}
                     <h3 className="dev_title"> Refine Your Search: </h3>
                     <div className="row">
-
                         <div className="col">
                             <Multiselect
                                 options={this.state.eatery_options} // Options to display in the dropdown
@@ -79,7 +57,6 @@ export default class SearchResult extends React.Component{
                             />
                         </div>
                         <div className="col">
-
                             <Multiselect
                                 options={this.state.delivery_options} // Options to display in the dropdown
                                 selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
@@ -111,64 +88,28 @@ export default class SearchResult extends React.Component{
                                 onSelect={this.onSelect} // Function will trigger on select event
                                 onRemove={this.onRemove} // Function will trigger on remove event
                                 displayValue="name" // Property name to display in the dropdown options
-                                placeholder={"Filter for Open Now"}
+                                placeholder={"Filter for Eateries Open Now"}
                                 showArrow={true}
                                 avoidHighlightFirstOption={true}
                             />
                         </div>
-
-
-
-
-                    {/*    /!* Filter by Eatery *!/*/}
-                    {/*    <DropdownButton className="dev_filters_row" id="dropdown-basic-button" title="Filter by Eatery Type">*/}
-                    {/*        <Dropdown.Item href="#/action-1">American</Dropdown.Item>*/}
-                    {/*        <Dropdown.Item href="#/action-2">Asian</Dropdown.Item>*/}
-                    {/*        <Dropdown.Item href="#/action-3">Mexican</Dropdown.Item>*/}
-                    {/*    </DropdownButton>*/}
-                    {/*    /!* Filter by Delivery/Pickup Type *!/*/}
-                    {/*    <DropdownButton className="dev_filters_row"  id="dropdown-basic-button" title="Filter by ">*/}
-                    {/*        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>*/}
-                    {/*        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*/}
-                    {/*        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
-                    {/*    </DropdownButton>*/}
-
-
-                    {/*    /!* Outdoor Dining *!/*/}
-                    {/*    <Link className="dev_filters_row btn btn-primary" onClick={this.outdoor_dining_filtered}>*/}
-                    {/*         {this.state.outdoor_filtered ? 'Undo Outdoor Dining Filter' : 'Filter for Outdoor Dining'}*/}
-                    {/*    </Link>*/}
-
-
-
-
-                    {/*    <Link to="/search" className="dev_filters_row btn btn-primary"> Outdoor </Link>*/}
-                    {/*    /!* Toggle Open Now *!/*/}
-                    {/*    <Link to="/search" className="dev_filters_row btn btn-primary"> Open Now </Link>*/}
-
-
-
-
                     </div>
 
-
-
+                    {/* Filter Submit and Clear Button */}
                     <div className= "dev_filters_m_row row">
                         <Popup trigger={<button className=" dev_filters_row btn btn-success"> Apply Filters </button>} position="right center">
-                            <div> In future implementation this will trigger and onClick event to filter
+                            <div> In future implementations this will trigger an onClick event to filter
                                 the list of restaurants below with the given parameters. </div>
                         </Popup>
                         <Popup trigger={<button className=" dev_filters_row btn btn-danger"> Clear Filters </button>} position="right center">
-                            <div> In future implementation this will trigger and onClick event to clear all
-                            filtered previously applied. </div>
+                            <div> In future implementations this will trigger an onClick event to clear all
+                            filters previously applied. </div>
                         </Popup>
-
                     </div>
 
+                    {/* Show of All Eateries in Neighborhood */}
                     <br/>
                     <h3 className="dev_title"> View Map of Eateries in this Neighborhood: </h3>
-
-                    {/* Show Map */}
                     <Link className="btn btn-success" onClick={this.toggle}>
                         Map: {this.state.show ? 'Hide' : 'Show'}
                     </Link>
@@ -178,12 +119,7 @@ export default class SearchResult extends React.Component{
                            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>
                         }
                     </div>
-
                     <br/>
-
-
-
-
 
 
                     {/* Cards of Eateries */}
@@ -303,7 +239,7 @@ export default class SearchResult extends React.Component{
                                         <p>
                                             Yelp Rating: <br/>
                                             <a href="https://www.yelp.com/biz/lone-star-taco-bar-allston">
-                                                4 out of 5 Stars (535 Reviews)
+                                                4 out of 5 Stars (495 Reviews)
                                             </a>
                                         </p>
                                         <p>
@@ -333,19 +269,6 @@ export default class SearchResult extends React.Component{
                             </div>
                         </div>
                     </div>
-
-
-                    <div style={showMyComponent ? {} : { display: 'none' }} >
-
-                    {/* Map */}
-                    {/* https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react*/}
-                    <br/>
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>
-
-                    </div>
-
-
-
                 </div>
             </div>
 

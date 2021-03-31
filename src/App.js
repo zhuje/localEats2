@@ -7,6 +7,7 @@ import Profile from "./components/Profile"
 import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
+import Popup from "reactjs-popup";
 
 export default class App extends React.Component{
 
@@ -62,12 +63,17 @@ export default class App extends React.Component{
                                     </li>
                                     {/* Logout */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">
-                                            <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                            &nbsp;
-                                            Log out
-                                        </a>
+                                        <Popup trigger={
+                                            <a className="nav-link" href="#">
+                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                                &nbsp;
+                                                Log out
+                                            </a>
+                                        } position="right center">
+                                            <div> Future implementations will log the user out. This feature is currently a mock up. </div>
+                                        </Popup>
                                     </li>
+
 
 
                                     {/* Search Result  */}
