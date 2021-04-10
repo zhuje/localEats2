@@ -28,7 +28,7 @@ export default class SearchResult extends React.Component{
                 <div className="dev_search_title">
 
                     {/* Heading */}
-                    <h1 className="dev_title"> Neighborhood Selected: Allston </h1>
+                    <h1 className="dev_title"> Neighborhoods Selected: Allston </h1>
                     {/* Graphic of Allston */}
                     {/*<div className="card dev_card">*/}
                     {/*    /!* Card1 *!/*/}
@@ -129,7 +129,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             {/* Heading */}
                             <h3 className="dev_title"> 1 Mala  </h3>
-                            <a href={"http://www.allstonmala.com/menu.html"}> View Menu </a>
+                            <a href={"http://www.allstonmala.com/menu.html"} target="_blank"> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -161,10 +161,8 @@ export default class SearchResult extends React.Component{
                                             </div>
                                         </div>
                                         <p>
-                                            Order Online from : <br/>
-                                            <a href="http://www.allstonmala.com">  Direct from Restaurant </a> <br/>
-                                            <a href="https://www.grubhub.com/restaurant/lulus-allston-421-cambridge-st-boston/2036805">  GrubHub </a> <br/>
-                                            <a href="https://www.ubereats.com/boston/food-delivery/lulus-allston/HIQQXByuRKePn2kmdxVo7g">  UberEats </a> <br/>
+                                            Order Online  : <br/>
+                                            <a href="http://www.allstonmala.com"  target="_blank">  Direct from Restaurant </a> <br/>
                                         </p>
                                     </div>
                                 </div>
@@ -177,7 +175,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             <h3 className="dev_title"> 2 Lulu's </h3>
 
-                            <a href={"https://www.lulusallston.com/menu.html"}> View Menu </a>
+                            <a href={"https://www.lulusallston.com/menu.html"} target="_blank"> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -210,10 +208,8 @@ export default class SearchResult extends React.Component{
                                             </div>
                                         </div>
                                         <p>
-                                            Order Online from : <br/>
-                                            <a href="https://lulusallston.getbento.com/online-ordering/lulus-allston/menu">  Direct from Restaurant </a> <br/>
-                                            <a href="https://www.grubhub.com/restaurant/mala-129-brighton-ave-allston/661208">  GrubHub </a> <br/>
-                                            <a href="http://www.allstonmala.com">  UberEats </a> <br/>
+                                            Order Online  : <br/>
+                                            <a href="https://lulusallston.getbento.com/online-ordering/lulus-allston/menu"  target="_blank">  Direct from Restaurant </a> <br/>
                                         </p>
                                     </div>
                                 </div>
@@ -227,7 +223,7 @@ export default class SearchResult extends React.Component{
                         <div className="card-body">
                             <h3 className="dev_title"> 3 Lone Star Taco Bar </h3>
 
-                            <a href={"https://www.toasttab.com/lonestar-allston/v3"}> View Menu </a>
+                            <a href={"https://www.toasttab.com/lonestar-allston/v3"} target="_blank"> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
                             <div className="container">
@@ -259,10 +255,8 @@ export default class SearchResult extends React.Component{
                                             </div>
                                         </div>
                                         <p>
-                                            Order Online from : <br/>
-                                            <a href="https://www.toasttab.com/lonestar-allston/v3">  Direct from Restaurant </a> <br/>
-                                            <a href="https://www.grubhub.com/restaurant/lone-star-allston-477-cambridge-st-allston-allston/2444152">  GrubHub </a> <br/>
-                                            <a href="https://www.ubereats.com/boston/food-delivery/lone-star-taco-bar-allston/h1BE2jLHScC0C2r_MZRBQA">  UberEats </a> <br/>
+                                            Order Online  : <br/>
+                                            <a href="https://www.toasttab.com/lonestar-allston/v3"  target="_blank">  Direct from Restaurant </a> <br/>
                                         </p>
                                     </div>
                                 </div>
