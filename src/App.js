@@ -27,7 +27,7 @@ export default class App extends React.Component{
                                placeholder="Search for an eatery name or type" aria-label="Search"/>
                         <ul className="navbar-nav px-3">
                             <li className="nav-item text-nowrap ">
-                                <a className="nav-link"   href="/search">Submit</a>
+                                <Link to="/search" className="btn btn-primary"> Search </Link>
                             </li>
                         </ul>
                     </nav>

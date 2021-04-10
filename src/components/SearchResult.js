@@ -111,7 +111,7 @@ export default class SearchResult extends React.Component{
                     <br/>
                     <h3 className="dev_title"> View Map of Eateries in this Neighborhood: </h3>
                     <Link className="btn btn-success" onClick={this.toggle}>
-                        Map: {this.state.show ? 'Hide' : 'Show'}
+                         {this.state.show ? 'Hide Map' : 'Show Map'}
                     </Link>
                     <div>
                         <br/>
