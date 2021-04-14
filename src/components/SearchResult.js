@@ -25,6 +25,8 @@ export default class SearchResult extends React.Component{
     render(){
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
+                {/*<div className="dev_background">*/}
+                {/*    <div className="dev_transbox">*/}
                 <div className="dev_search_title">
 
                     {/* Heading */}
@@ -265,6 +267,8 @@ export default class SearchResult extends React.Component{
                     </div>
                 </div>
             </div>
+            //     </div>
+            // </div>
 
         )
     }

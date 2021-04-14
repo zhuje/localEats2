@@ -22,8 +22,9 @@ export default class App extends React.Component{
                                 LocalEats
                             </h1>
                         </a>
+
                         <input className="form-control form-control-dark w-100" type="text"
-                               placeholder="Search for an eatery name or type" aria-label="Search"/>
+                               placeholder="Search for 'pizza' (it will only work for that key phrase) " aria-label="Search"/>
                         <ul className="navbar-nav px-3">
                             <li className="nav-item text-nowrap ">
                                 <Link to="/search" className="btn btn-primary"> Search </Link>
