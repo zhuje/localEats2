@@ -34,8 +34,8 @@ export default class App extends React.Component{
 
                     {/* SideBar */}
                     <div className="row">
-                        <nav className="col-md-3 d-none d-md-block bg-light sidebar">
-                            <div className="sidebar-sticky">
+                        <nav className="col-md-3 d-none d-md-block sidebar">
+                            <div class="position-fixed">
                                 <ul className="nav flex-column">
                                     {/* Home */}
                                     <li className="nav-item active">
