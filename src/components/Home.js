@@ -46,27 +46,27 @@ export default class Home extends React.Component {
 
                             <hr className="my-4" style={{color:"white"}}/>
 
-                            <h3 className="dev_title"> About </h3>
-                            <h5 className="dev_title"> Need </h5>
-                            Currently, there's no great way to search specifically
-                            for locally owned restaurants in Boston -- sites like Yelp and
-                            Google Maps don't have provide a mechanism for this. And sites
-                            that do provide a list of these eateries don't have efficient
-                            ways to view or filter through restaurants. We saw a need to
-                            develop a site that marries usability and a dedication to showing only
-                            small, locally owned, and non-franchised eateries.
-                            <p>
-                            </p>
-                            <h5 className="dev_title"> Insight </h5>
-                            <p>
-                                The economic fallout of COVID has caused many small,
-                                locally owned restaurants to close. Restaurants provide us a way
-                                to gather and socialize -- at times they are cultural hubs.
-                                Many want to help preserve these institutions and ensure they
-                                still have a seat at their favorite restaurant when post-COVID.
-                                As a result we are creating a website to assist patrons in
-                                identifying and supporting their local economies by eating local!
-                            </p>
+                            {/*<h3 className="dev_title"> About </h3>*/}
+                            {/*<h5 className="dev_title"> Need </h5>*/}
+                            {/*Currently, there's no great way to search specifically*/}
+                            {/*for locally owned restaurants in Boston -- sites like Yelp and*/}
+                            {/*Google Maps don't have provide a mechanism for this. And sites*/}
+                            {/*that do provide a list of these eateries don't have efficient*/}
+                            {/*ways to view or filter through restaurants. We saw a need to*/}
+                            {/*develop a site that marries usability and a dedication to showing only*/}
+                            {/*small, locally owned, and non-franchised eateries.*/}
+                            {/*<p>*/}
+                            {/*</p>*/}
+                            {/*<h5 className="dev_title"> Insight </h5>*/}
+                            {/*<p>*/}
+                            {/*    The economic fallout of COVID has caused many small,*/}
+                            {/*    locally owned restaurants to close. Restaurants provide us a way*/}
+                            {/*    to gather and socialize -- at times they are cultural hubs.*/}
+                            {/*    Many want to help preserve these institutions and ensure they*/}
+                            {/*    still have a seat at their favorite restaurant when post-COVID.*/}
+                            {/*    As a result we are creating a website to assist patrons in*/}
+                            {/*    identifying and supporting their local economies by eating local!*/}
+                            {/*</p>*/}
                         </div>
                     </div>
                 </div>
