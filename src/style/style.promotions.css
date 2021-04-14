@@ -1,0 +1,18 @@
+.myspacing {
+    padding-bottom: 16px;
+}
+
+.rowC {
+    display: flex;
+    flex-direction: row;
+}
+
+.promoCard {
+    height: 150px;
+    width: 200px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+}

@@ -1,3 +1,21 @@
+# LocalEats -- Boston 
+A website to find local eateries within Boston Neighborhoods. 
+
+### View Deployed Website on Heroku 
+[https://localeatsboston.herokuapp.com/](https://localeatsboston.herokuapp.com/)
+
+### To Run Locally 
+CLI : npm start 
+This will automatically open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### File Structure 
+This website is created as a single page application. Components are rendered as they are called. 
+- Components Directory : Holds the HTML and logic of the components. 
+- Style Directory : Holds the css (styling) for each corresponding component. 
+- index.js : Is the the file that first loads when the application launches, calls App.js .
+- App.js : Is the container that holds all the other components along with navigation bars. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
