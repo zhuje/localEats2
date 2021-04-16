@@ -4,12 +4,15 @@ import {Link} from "react-router-dom";
 import Popup from "reactjs-popup";
 import 'reactjs-popup/dist/index.css';
 import {Multiselect} from "multiselect-react-dropdown";
+import {DropdownButton, Dropdown} from "react-bootstrap";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 
 export default class SearchResult extends React.Component{
 
-
     state = {
+        showAsian: true,
+        showAmerican: true,
         show: false,
         outdoor_filtered: false,
         open_filtered: false,
@@ -20,17 +23,29 @@ export default class SearchResult extends React.Component{
     }
 
     toggle = () => this.setState((currentState) => ({show: !currentState.show}));
+    toggleAsian = () => this.setState((currentState) => ({showAsian: !currentState.showAsian}));
+    toggleAmerican = () => this.setState((currentState) => ({showAmerican: !currentState.showAmerican}));
+    toggleMexican = () => this.setState((currentState) => ({showMexican: !currentState.showMexican}));
 
 
     render(){
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
-                {/*<div className="dev_background">*/}
-                {/*    <div className="dev_transbox">*/}
+
                 <div className="dev_search_title">
 
+                    <div className="jumbotron dev_background_allston">
+                        <div className="dev_transbox_searchResults">
+                        <div className="container">
+                            <h1 className="display-4"> Allston </h1>
+                            {/*<p className="lead"> This is a modified jumbotron that occupies the*/}
+                            {/*    entire horizontal space of its parent. </p>*/}
+                        </div>
+                    </div>
+                    </div>
+
                     {/* Heading */}
-                    <h1 className="dev_title"> Neighborhoods Selected: Allston </h1>
+                    {/*<h1 className="dev_title"> Neighborhoods Selected: Allston </h1>*/}
                     {/* Graphic of Allston */}
                     {/*<div className="card dev_card">*/}
                     {/*    /!* Card1 *!/*/}
@@ -40,97 +55,132 @@ export default class SearchResult extends React.Component{
                     {/*        </div>*/}
                     {/*    </div>*/}
                     {/*</div>*/}
-                    <hr className="my-4"/>
+                    {/*<hr className="my-4"/>*/}
 
 
                     {/* Filters */}
-                    <h3 className="dev_title"> Refine Your Search: </h3>
-                    <div className="row">
-                        <div className="col">
-                            <Multiselect
-                                options={this.state.eatery_options} // Options to display in the dropdown
-                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                                onSelect={this.onSelect} // Function will trigger on select event
-                                onRemove={this.onRemove} // Function will trigger on remove event
-                                displayValue="name" // Property name to display in the dropdown options
-                                placeholder={"Filter for Eatery Type"}
-                                showArrow={true}
-                                avoidHighlightFirstOption={true}
-                            />
-                        </div>
-                        <div className="col">
-                            <Multiselect
-                                options={this.state.delivery_options} // Options to display in the dropdown
-                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                                onSelect={this.onSelect} // Function will trigger on select event
-                                onRemove={this.onRemove} // Function will trigger on remove event
-                                displayValue="name" // Property name to display in the dropdown options
-                                placeholder={"Filter for Delivery Type"}
-                                showArrow={true}
-                                avoidHighlightFirstOption={true}
+                    <h2 className="dev_title"> Refine Your Search: </h2>
+                    <hr className="my-4"/>
 
-                            />
-                        </div>
-                        <div className="col">
-                            <Multiselect
-                                options={this.state.outdoor_options} // Options to display in the dropdown
-                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                                onSelect={this.onSelect} // Function will trigger on select event
-                                onRemove={this.onRemove} // Function will trigger on remove event
-                                displayValue="name" // Property name to display in the dropdown options
-                                placeholder={"Filter for Outdoor Dining"}
-                                showArrow={true}
-                                avoidHighlightFirstOption={true}
-                            />
-                        </div>
-                        <div className="col">
-                            <Multiselect
-                                options={this.state.openNow_options} // Options to display in the dropdown
-                                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                                onSelect={this.onSelect} // Function will trigger on select event
-                                onRemove={this.onRemove} // Function will trigger on remove event
-                                displayValue="name" // Property name to display in the dropdown options
-                                placeholder={"Filter for Eateries Open Now"}
-                                showArrow={true}
-                                avoidHighlightFirstOption={true}
-                            />
-                        </div>
-                    </div>
+
+                        <Dropdown as={ButtonGroup}>
+                            <Dropdown.Toggle id="dropdown-custom-1">Neighborhood</Dropdown.Toggle>
+                            <Dropdown.Menu className="super-colors">
+                                <Dropdown.Item eventKey="allston"
+                                               onClick={this.showAllston}>Allston</Dropdown.Item>
+                                <Dropdown.Item eventKey="bb" onClick={this.showBackBay}>Back
+                                    Bay</Dropdown.Item>
+                                <Dropdown.Item eventKey="jp" onClick={this.showJP} selected="selected">Jamaica
+                                    Plain</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>&nbsp;&nbsp;&nbsp;
+                        <Dropdown as={ButtonGroup}>
+                            <Dropdown.Toggle id="dropdown-custom-1">Sort</Dropdown.Toggle>
+                            <Dropdown.Menu className="super-colors">
+                                <Dropdown.Item eventKey="alph"
+                                               onClick={this.sortAlph}>Alphabetical</Dropdown.Item>
+                                <Dropdown.Item eventKey="expir"
+                                               onClick={this.sortExpir}>Expiration</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>&nbsp;&nbsp;&nbsp;
+                        <button type="button" className="btn btn-primary">Saved Promotions</button>
+
+
+
+                    {/*    <div className="col">*/}
+                    {/*        <Multiselect*/}
+                    {/*            options={this.state.eatery_options} // Options to display in the dropdown*/}
+                    {/*            selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown*/}
+                    {/*            onSelect={this.onSelect} // Function will trigger on select event*/}
+                    {/*            onRemove={this.onRemove} // Function will trigger on remove event*/}
+                    {/*            displayValue="name" // Property name to display in the dropdown options*/}
+                    {/*            placeholder={"Filter for Eatery Type"}*/}
+                    {/*            showArrow={true}*/}
+                    {/*            avoidHighlightFirstOption={true}*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*    <div className="col">*/}
+                    {/*        <Multiselect*/}
+                    {/*            options={this.state.delivery_options} // Options to display in the dropdown*/}
+                    {/*            selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown*/}
+                    {/*            onSelect={this.onSelect} // Function will trigger on select event*/}
+                    {/*            onRemove={this.onRemove} // Function will trigger on remove event*/}
+                    {/*            displayValue="name" // Property name to display in the dropdown options*/}
+                    {/*            placeholder={"Filter for Delivery Type"}*/}
+                    {/*            showArrow={true}*/}
+                    {/*            avoidHighlightFirstOption={true}*/}
+
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*    <div className="col">*/}
+                    {/*        <Multiselect*/}
+                    {/*            options={this.state.outdoor_options} // Options to display in the dropdown*/}
+                    {/*            selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown*/}
+                    {/*            onSelect={this.onSelect} // Function will trigger on select event*/}
+                    {/*            onRemove={this.onRemove} // Function will trigger on remove event*/}
+                    {/*            displayValue="name" // Property name to display in the dropdown options*/}
+                    {/*            placeholder={"Filter for Outdoor Dining"}*/}
+                    {/*            showArrow={true}*/}
+                    {/*            avoidHighlightFirstOption={true}*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*    <div className="col">*/}
+                    {/*        <Multiselect*/}
+                    {/*            options={this.state.openNow_options} // Options to display in the dropdown*/}
+                    {/*            selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown*/}
+                    {/*            onSelect={this.onSelect} // Function will trigger on select event*/}
+                    {/*            onRemove={this.onRemove} // Function will trigger on remove event*/}
+                    {/*            displayValue="name" // Property name to display in the dropdown options*/}
+                    {/*            placeholder={"Filter for Eateries Open Now"}*/}
+                    {/*            showArrow={true}*/}
+                    {/*            avoidHighlightFirstOption={true}*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
                     {/* Filter Submit and Clear Button */}
                     <div className= "dev_filters_m_row row">
-                        <Popup trigger={<button className=" dev_filters_row btn btn-success"> Apply Filters </button>} position="right center">
-                            <div> In future implementations this will trigger an onClick event to filter
-                                the list of restaurants below with the given parameters. </div>
-                        </Popup>
+                        {/*<Popup trigger={<button className=" dev_filters_row btn btn-success"> Apply Filters </button>} position="right center">*/}
+                        {/*    <div> In future implementations this will trigger an onClick event to filter*/}
+                        {/*        the list of restaurants below with the given parameters. </div>*/}
+                        {/*</Popup>*/}
                         <Popup trigger={<button className=" dev_filters_row btn btn-danger"> Clear Filters </button>} position="right center">
                             <div> In future implementations this will trigger an onClick event to clear all
                             filters previously applied. </div>
                         </Popup>
                     </div>
+                    <br/>
 
                     {/* Show of All Eateries in Neighborhood */}
-                    <br/>
-                    <h3 className="dev_title"> View Map of Eateries in this Neighborhood: </h3>
-                    <Link className="btn btn-success" onClick={this.toggle}>
-                         {this.state.show ? 'Hide Map' : 'Show Map'}
-                    </Link>
-                    <div>
-                        <br/>
-                        {this.state.show &&
-                           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>
-                        }
-                    </div>
-                    <br/>
+                    {/*<br/>*/}
+                    {/*<h3 className="dev_title"> View Map of Eateries in this Neighborhood: </h3>*/}
+
+
+                    {/*<Link className="btn btn-success" onClick={this.toggle}>*/}
+                    {/*     {this.state.show ? 'Hide Map' : 'Show Map'}*/}
+                    {/*</Link>*/}
+                    {/*<div>*/}
+                    {/*    <br/>*/}
+                    {/*    {this.state.show &&*/}
+                    {/*       <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Wrlo5Uo_IFsabhzytpEkzlw7UMyJ_XTy" width="750" height="480"></iframe>*/}
+                    {/*    }*/}
+                    {/*</div>*/}
+                    {/*<br/>*/}
 
 
                     {/* Cards of Eateries */}
-                    <h3 className="dev_title"> Search Results :  </h3>
+                    <br/>
+
+                    <h2 className="dev_title_searchResult"> Eatery Search Results :  </h2>
+                    <p> We encourage you to order directly from the restaurant when possible. <br/>
+                        This allows them to avoid paying fees to other delivery services.
+                    </p>
+
                     {/* Card1 */}
                     <div className="card dev_card">
                         <div className="card-body">
                             {/* Heading */}
-                            <h3 className="dev_title"> 1 Mala  </h3>
+                            <h3 className="dev_title"> Mala  </h3>
                             <a href={"http://www.allstonmala.com/menu.html"} target="_blank"> View Menu </a>
                             <br/><br/>
                             {/* Columns */}
@@ -148,14 +198,20 @@ export default class SearchResult extends React.Component{
                                         </p>
                                         <p>
                                             Hours of Operation:
-                                            <p> Sunday - Saturday 11AM - 11PM </p>
+                                            <p> Sunday 11AM - 11PM <br/>
+                                                Monday 11AM - 11PM <br/>
+                                                Tuesday 11AM - 11PM <br/>
+                                                Wednesday 11AM - 11PM <br/>
+                                                Thursday 11AM - 11PM <br/>
+                                                Friday 11AM - 11PM <br/>
+                                                Saturday 11AM - 11PM <br/>
+                                            </p>
 
                                         </p>
                                         <p>
                                             Outdoor Dining Available?
                                             <p style={{color: "green"}}> Yes </p>
                                         </p>
-                                        {/* TODO -- Resize with bootstrap grid system */}
                                         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                                             <div> Delivery: <p style={{color: "red"}}> No </p>  </div>
                                             <div>  Curbside Pick-Up: <p style={{color: "green"}}> Yes </p></div>
@@ -175,7 +231,7 @@ export default class SearchResult extends React.Component{
                     {/* Card2 */}
                     <div className="card dev_card">
                         <div className="card-body">
-                            <h3 className="dev_title"> 2 Lulu's </h3>
+                            <h3 className="dev_title"> Lulu's </h3>
 
                             <a href={"https://www.lulusallston.com/menu.html"} target="_blank"> View Menu </a>
                             <br/><br/>
@@ -194,15 +250,19 @@ export default class SearchResult extends React.Component{
                                         </p>
                                         <p>
                                             Hours of Operation:
-                                            <p> Monday to Friday 11:30AM - 1AM </p>
-                                            <p> Saturday to Sunday 10:30AM - 1AM </p>
-
+                                            <p> Sunday 10:30AM - 1AM <br/>
+                                                Monday 11:30AM - 1AM <br/>
+                                                Tuesday 11:30AM - 1AM <br/>
+                                                Wednesday 11:30AM - 1AM <br/>
+                                                Thursday 11:30AM - 1AM <br/>
+                                                Friday 11:30AM - 1AM <br/>
+                                                Saturday 10:30AM - 1AM <br/>
+                                            </p>
                                         </p>
                                         <p>
                                             Outdoor Dining Available?
                                             <p style={{color: "green"}}> Yes </p>
                                         </p>
-                                        {/* TODO -- Resize with bootstrap grid system */}
                                         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                                             <div> Delivery: <p style={{color: "green"}}> Yes </p>  </div>
                                             <div>  Curbside Pick-Up: <p style={{color: "red"}}> No </p></div>
@@ -223,7 +283,7 @@ export default class SearchResult extends React.Component{
                     {/* Card3 */}
                     <div className="card dev_card">
                         <div className="card-body">
-                            <h3 className="dev_title"> 3 Lone Star Taco Bar </h3>
+                            <h3 className="dev_title"> Lone Star Taco Bar </h3>
 
                             <a href={"https://www.toasttab.com/lonestar-allston/v3"} target="_blank"> View Menu </a>
                             <br/><br/>
@@ -242,14 +302,22 @@ export default class SearchResult extends React.Component{
                                         </p>
                                         <p>
                                             Hours of Operation:
-                                            <p>  Sunday to Saturday 11AM - 12AM </p>
+                                            <p> Sunday 11AM - 12AM <br/>
+                                                Monday 11AM - 12AM <br/>
+                                                Tuesday 11AM - 12AM <br/>
+                                                Wednesday 11AM - 12AM <br/>
+                                                Thursday 11AM - 12AM <br/>
+                                                Friday 11AM - 12AM <br/>
+                                                Saturday 11AM - 12AM <br/>
+                                            </p>
+
+
 
                                         </p>
                                         <p>
                                             Outdoor Dining Available?
                                             <p style={{color: "red"}}> No </p>
                                         </p>
-                                        {/* TODO -- Resize with bootstrap grid system */}
                                         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                                             <div> Delivery: <p style={{color: "green"}}> Yes </p>  </div>
                                             <div>  Curbside Pick-Up: <p style={{color: "red"}}> No </p></div>
@@ -267,8 +335,7 @@ export default class SearchResult extends React.Component{
                     </div>
                 </div>
             </div>
-            //     </div>
-            // </div>
+
 
         )
     }

@@ -53,3 +53,39 @@
     background-color: ghostwhite;
     margin-top: 10px;
 }
+
+.dev_background_allston{
+    background: url(https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2015/10/allston13.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+div.dev_transbox_searchResults {
+    text-align: center;
+    margin: 30px;
+    padding: 57px;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0.9;
+    color: white;
+    /*width: 50%;*/
+}
+
+.dev_title_searchResult{
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
