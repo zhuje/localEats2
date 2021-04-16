@@ -66,29 +66,13 @@ export default class SearchResult extends React.Component{
 
     };
 
-     unCheck = () =>  {
-        let x = document.getElementsByClassName("checkbox");
-        for(let i=0; i<=x.length; i++) {
-            x[i].checked = false;
-        }
-    };
-
-
-
 
     render() {
-        const {showAsian} = this.state;
-        const {showAmerican} = this.state;
-        const {showMexican} = this.state;
+
 
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
-
-                    <input type="checkbox" className="checkbox"/>
-                    <input type="checkbox" className="checkbox"/>
-                    <input type="checkbox" className="checkbox"/>
-                    <button onClick={this.unCheck}>Try it</button>
 
                     {/* JUMBOTRON */}
                     <div className="jumbotron dev_background_allston">
@@ -111,7 +95,10 @@ export default class SearchResult extends React.Component{
                     }}>
                         <div>
                             <Dropdown as={ButtonGroup}>
-                                <Dropdown.Toggle id="dropdown-custom-1"> Eatery Type </Dropdown.Toggle>
+                                <Dropdown.Toggle id="dropdown-custom-1" style={{
+                                    paddingLeft: "3.375rem",
+                                    paddingRight: "3.375rem"
+                                }}> Eatery Type </Dropdown.Toggle>
                                 <Dropdown.Menu className="super-colors">
                                     <Dropdown.Item  onClick={this.filterAsian}> Asian </Dropdown.Item>
                                     <Dropdown.Item onClick={this.filterAmerican}> American </Dropdown.Item>
@@ -172,9 +159,17 @@ export default class SearchResult extends React.Component{
 
 
                     {/* Filter Submit and Clear Button */}
-                    <div className= "dev_filters_m_row row">
-                        <button onClick={this.clearFilters} className= "dev_filters_row btn btn-danger dev_button_size"> Clear Filters </button>
-                    </div>
+                    {/*<div className= "dev_filters_m_row row">*/}
+                        <button onClick={this.clearFilters}
+                                type="button"
+                                className= "btn btn-danger dev_button_size"
+                                style={{
+                                        paddingLeft: "3.375rem",
+                                        paddingRight: "3.375rem"
+                        }}>
+                            Clear Filters
+                        </button>
+                    {/*</div>*/}
                     <br/>
 
                     {/* Cards of Eateries */}
