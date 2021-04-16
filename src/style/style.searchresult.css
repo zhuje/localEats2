@@ -20,7 +20,10 @@
 
 .dev_filters_m_row{
     margin-top: 5px;
+}
 
+.dev_filters_align{
+    margin-left: 5px;
 }
 
 .dev_search_title{
@@ -89,3 +92,9 @@ div.dev_transbox_searchResults {
     display: table;
     clear: both;
 }
+
+.dev_photo_radius{
+    border-radius: 30px;
+}
+
+
