@@ -20,15 +20,13 @@ function MyVerticallyCenteredModal(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    Promotion saved!
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>Centered Modal</h4>
                 <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
+                    Click on the "Saved Promotions" tab to view each saved promotion. Click on "Close"
+                    in order to close this window.
                 </p>
             </Modal.Body>
             <Modal.Footer>
@@ -43,9 +41,9 @@ function Alot() {
 
     return (
         <>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-                Launch vertically centered modal
-            </Button>
+            <button type="button"
+                    className="btn btn-primary btn-sm btn-block" onClick={() => setModalShow(true)} >Save
+                to profile</button>
 
             <MyVerticallyCenteredModal
                 show={modalShow}
@@ -114,10 +112,21 @@ export default class Promotions extends React.Component {
 
         return (
             <div className="col-sm-12 col-md-9">
-                <h1>Promotions</h1>
+                <div className="dev_search_title">
+
+                    <div className="jumbotron-fluid dev_background_allston2">
+                        <div className="dev_transbox_searchResults">
+                            <div className="container">
+                                <h1 className="display-6"> Promotions </h1>
+                                <p className="lead"> Search through various deals and promotions throughout Allston,
+                                Back Bay, and Jamaica Plain. Save them to your profile to keep track of your favorite
+                                deals!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="myspacing">
-                    &nbsp;&nbsp;&nbsp;
-                    <Dropdown as={ButtonGroup}>
+                    <Dropdown as={ButtonGroup} style={{width: '30%', paddingRight: '12px'}}>
                         <Dropdown.Toggle id="dropdown-custom-1">Neighborhood</Dropdown.Toggle>
                         <Dropdown.Menu className="super-colors">
                             <Dropdown.Item eventKey="allston"
@@ -127,8 +136,8 @@ export default class Promotions extends React.Component {
                             <Dropdown.Item eventKey="jp" onClick={this.showJP} selected="selected">Jamaica
                                 Plain</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>&nbsp;&nbsp;&nbsp;
-                    <Dropdown as={ButtonGroup}>
+                    </Dropdown>
+                    <Dropdown as={ButtonGroup} style={{width: '30%', paddingRight: '12px'}}>
                         <Dropdown.Toggle id="dropdown-custom-1">Sort</Dropdown.Toggle>
                         <Dropdown.Menu className="super-colors">
                             <Dropdown.Item eventKey="alph"
@@ -136,61 +145,47 @@ export default class Promotions extends React.Component {
                             <Dropdown.Item eventKey="expir"
                                            onClick={this.sortExpir}>Expiration</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>&nbsp;&nbsp;&nbsp;
-                    <button type="button" className="btn btn-primary">Saved Promotions</button>
+                    </Dropdown>
+                    <button type="button" className="btn btn-primary" style={{width:'35%', height: '200%'}}>Saved Promotions</button>
                 </div>
 
-                {/* ALLSTON EXPIRATION*/}
-                {allston && (
+                {/* ALLSTON ALPH*/}
+                {allston && alph &&(
                     <div className="container">
                         <div className="card-deck">
                             <div className="card mb-4">
                                 <div className="card-block">
                                     <img className="card-img-top img-fluid"
-                                         src="https://api.curaytor.io/sites/20/media/419380/CanaryExt.jpg?w=851"
+                                         src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"
+                                         alt={"Lone Star Taco Bar"}
                                     />
                                 </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">Canary Square</h4>
-                                    <p className="card-text">This is an example of a cool
-                                        promotion.</p>
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <h4 className="card-title">Lone Star Taco Bar</h4>
+                                    <p className="card-text">Half off all enchiladas until April 30th.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
-                                        April 6th,
+                                        Apr 30th,
                                         2021</small></p>
                                 </div>
                             </div>
                             <div className="card mb-4">
                                 <div className="card-block">
-                                    <img className="card-img-top img-responsive"
-                                         src="https://www.jamaicaplainnews.com/wp-content/uploads/2015/08/Tres-Gatos1.jpg"
-                                         alt={"peepeepoopoo"}/>
+                                    <img className="card-img-top img-fluid"
+                                         src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"
+                                         alt={"Lone Star Taco Bar"}
+                                    />
                                 </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">Tres Gatos</h4>
-                                    <p className="card-text">This is an example of a cool promotion.
-                                        Very good indeed.</p>
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <h4 className="card-title">Lone Star Taco Bar</h4>
+                                    <p className="card-text">10% off all pickup orders over $50. Expires May 2nd. </p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
-                                        April 6th,
+                                        May 2nd,
                                         2021</small></p>
                                 </div>
                             </div>
@@ -198,39 +193,40 @@ export default class Promotions extends React.Component {
                                 className="w-100 d-none d-sm-block d-md-none"></div>
                             <div className="card mb-4">
                                 <div className="card-block">
-                                    <img className="card-img-top img-responsive"
-                                         src="https://i1.ypcdn.com/blob/127d71a9db0a06311aa67618e69f6375a2ba5a1b_400x280_crop.jpg"
-                                         alt={"Zesto's Pizza"}/>
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
                                 </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">Zesto's Pizza</h4>
-                                    <p className="card-text">This is an example of a cool promotion.
-                                        Very good indeed.</p>
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">$4 beers during happy hour! 2 - 6 PM until May 1st.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
-                                        April 6th,
+                                        May 1st,
                                         2021</small></p>
                                 </div>
                             </div>
                             <div
                                 className="w-100 d-none d-md-block d-lg-none"></div>
                             <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">4 Card title</h4>
-                                    <p className="card-text">This is a longer card with supporting
-                                        text below as a natural lead-in to additional content. This
-                                        content is a little bit longer.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">Half off all vegan appetizers until May 3rd.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 3rd,
+                                        2021</small></p>
                                 </div>
                             </div>
                             <div
@@ -238,50 +234,167 @@ export default class Promotions extends React.Component {
                             <div
                                 className="w-100 d-none d-lg-block d-xl-none"></div>
                             <div className="card mb-4">
-
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">5 Card title</h4>
-                                    <p className="card-text">This is a longer card with supporting
-                                        text below as a natural lead-in to additional content. This
-                                        content is a little bit longer.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">Free delivery on orders above $30. Expires May 7th.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 7th,
+                                        2021</small></p>
                                 </div>
                             </div>
                             <div className="w-100 d-none d-xl-block"></div>
                             <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">6 Card title</h4>
-                                    <p className="card-text">This card has supporting text below as
-                                        a natural lead-in to additional content.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">15% off any order above $30. Pickup or
+                                        Dine-In only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        Apr 28th,
+                                        2021</small></p>
                                 </div>
                             </div>
+
                             <div
                                 className="w-100 d-none d-sm-block d-md-none"></div>
                             <div
                                 className="w-100 d-none d-md-block d-lg-none"></div>
                             <div className="card mb-4">
-
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">7 Card title</h4>
-                                    <p className="card-text">This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This
-                                        card has even longer content than the first to show that
-                                        equal height action.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">Free side rice with any large combo meal. Pickup only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        Apr 29th,
+                                        2021</small></p>
                                 </div>
                             </div>
                             <div className="card mb-4">
-
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">8 Card title</h4>
-                                    <p className="card-text">This card has supporting text below as
-                                        a natural lead-in to additional content.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">Half off all drinks until May 4th. Dine-In only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 4th,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* ALLSTON EXPIRATION*/}
+                {allston && expir &&(
+                    <div className="container">
+                        <div className="card-deck">
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">15% off any order above $30. Pickup or
+                                        Dine-In only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        Apr 28th,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">Free side rice with any large combo meal. Pickup only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        Apr 29th,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                            <div
+                                className="w-100 d-none d-sm-block d-md-none"></div>
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"
+                                         alt={"Lone Star Taco Bar"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Lone Star Taco Bar</h4>
+                                    <p className="card-text">Half off all enchiladas until April 30th.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        Apr 30th,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                            <div
+                                className="w-100 d-none d-md-block d-lg-none"></div>
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">$4 beers during happy hour! 2 - 6 PM until May 1st.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 1st,
+                                        2021</small></p>
                                 </div>
                             </div>
                             <div
@@ -289,29 +402,80 @@ export default class Promotions extends React.Component {
                             <div
                                 className="w-100 d-none d-lg-block d-xl-none"></div>
                             <div className="card mb-4">
-
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"
+                                         alt={"Lone Star Taco Bar"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">Card title</h4>
-                                    <p className="card-text">This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This
-                                        card has even longer content than the first to show that
-                                        equal height action.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Lone Star Taco Bar</h4>
+                                    <p className="card-text">10% off all pickup orders over $50. Expires May 2nd. </p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 2nd,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                            <div className="w-100 d-none d-xl-block"></div>
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">Half off all vegan appetizers until May 3rd.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 3rd,
+                                        2021</small></p>
                                 </div>
                             </div>
                             <div
+                                className="w-100 d-none d-sm-block d-md-none"></div>
+                            <div
                                 className="w-100 d-none d-md-block d-lg-none"></div>
                             <div className="card mb-4">
-
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://zagat-photos.imgix.net/ChIJ9apTCcV544kRKPljhTwfJrM/9b049c103bb722038032b37f3ffcc267.jpg"
+                                         alt={"Mala"}
+                                    />
+                                </div>
                                 <div className="card-body">
-                                    <h4 className="card-title">10 Card title</h4>
-                                    <p className="card-text">This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This
-                                        card has even longer content than the first to show that
-                                        equal height action.</p>
-                                    <p className="card-text"><small className="text-muted">Last
-                                        updated 3 mins ago</small></p>
+                                    <h4 className="card-title">Mala</h4>
+                                    <p className="card-text">Half off all drinks until May 4th. Dine-In only.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 4th,
+                                        2021</small></p>
+                                </div>
+                            </div>
+                            <div className="card mb-4">
+                                <div className="card-block">
+                                    <img className="card-img-top img-fluid"
+                                         src="https://www.lulusallston.com/img/9new.jpg"
+                                         alt={"Lulu's"}
+                                    />
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Lulu's</h4>
+                                    <p className="card-text">Free delivery on orders above $30. Expires May 7th.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Alot/>
+                                    <p className="card-text"><small className="text-muted">Expires:
+                                        May 7th,
+                                        2021</small></p>
                                 </div>
                             </div>
                         </div>
@@ -335,16 +499,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         Apr 26th,
                                         2021</small></p>
@@ -362,16 +517,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -391,16 +537,7 @@ export default class Promotions extends React.Component {
                                         for pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -420,16 +557,7 @@ export default class Promotions extends React.Component {
                                         2nd. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -451,16 +579,7 @@ export default class Promotions extends React.Component {
                                         noodle dish. Pickup only. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -479,16 +598,7 @@ export default class Promotions extends React.Component {
                                         Expires May 5th. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -509,16 +619,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$5 foot long subs. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>
@@ -535,16 +636,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">30% off all large soups until May 8th!</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -565,16 +657,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off wine bottles for Dine-In only. Expires May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -593,16 +676,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">25% off all pickup orders over $45. Expires May 10th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 10th,
                                         2021</small></p>
@@ -627,9 +701,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off wine bottles for Dine-In only. Expires May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <button type="button"
-                                            className="btn btn-primary btn-sm btn-block" onClick={alert} >Save
-                                        to profile</button>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -648,16 +720,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         Apr 26th,
                                         2021</small></p>
@@ -676,16 +739,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">30% off all large soups until May 8th!</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -705,16 +759,7 @@ export default class Promotions extends React.Component {
                                         Expires May 5th. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -736,16 +781,7 @@ export default class Promotions extends React.Component {
                                         noodle dish. Pickup only. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -764,16 +800,7 @@ export default class Promotions extends React.Component {
                                         2nd. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -795,16 +822,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -821,16 +839,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">25% off all pickup orders over $45. Expires May 10th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 10th,
                                         2021</small></p>
@@ -852,16 +861,7 @@ export default class Promotions extends React.Component {
                                         for pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -880,16 +880,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$5 foot long subs. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Popup trigger={<button type="button"
-                                                            className="btn btn-primary btn-sm btn-block">Save
-                                        to profile</button>}
-                                           position="left">
-                                        <div> This button will remove the specified promotion so
-                                            that it
-                                            does
-                                            not reappear for the user if they are uninterested.
-                                        </div>
-                                    </Popup>
+                                    <Alot/>
                                     <p className="card-text"><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>

@@ -1,10 +1,20 @@
 .myspacing {
-    padding-bottom: 16px;
+    padding-bottom: 28px;
+    text-align: center;
 }
 
 .rowC {
     display: flex;
     flex-direction: row;
+}
+
+.dev_background_allston2{
+    background: url(https://www.langan.com/wp-content/uploads/2019/02/Boston-996x554.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 80%;
+
 }
 
 .promoCard {
