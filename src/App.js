@@ -38,16 +38,16 @@ export default class App extends React.Component{
                             <div class="position-fixed">
                                 <ul className="nav flex-column">
                                     {/* Home */}
-                                    <li className="nav-item active">
+                                    <li className="nav-item active" style={{height:'50'}}>
                                         <a className="nav-link" href="home">
-                                            <i className="fa fa-home" aria-hidden="true"></i>
+                                            <i className="fa fa-home" aria-hidden="true" ></i>
                                             &nbsp;
                                             Navigate Home
                                         </a>
                                     </li>
                                     {/* Promotions */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="promotions">
+                                        <a className="nav-link" href="promotions" style={{height:'50'}}>
                                             <i className="feather fa fa-money " aria-hidden="true"></i>
                                             &nbsp;
                                             Find Promotions
@@ -55,7 +55,7 @@ export default class App extends React.Component{
                                     </li>
                                     {/* Profile */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="profile">
+                                        <a className="nav-link" href="profile" style={{height:'50'}}>
                                             <i className="fa fa-user-circle-o" aria-hidden="true"></i>
                                             &nbsp;
                                             Adjust Profile
@@ -64,7 +64,7 @@ export default class App extends React.Component{
                                     {/* Logout */}
                                     <li className="nav-item">
                                         <Popup trigger={
-                                            <a className="nav-link" href="#">
+                                            <a className="nav-link" href="#" style={{height:'50'}}>
                                                 <i className="fa fa-sign-out" aria-hidden="true"></i>
                                                 &nbsp;
                                                 Log out

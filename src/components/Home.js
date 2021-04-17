@@ -1,28 +1,87 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
 import '../style/style.app.css';
 import '../style/style.home.css'
 import {Link} from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+
+function MyVerticallyCenteredModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Modal heading
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <h4>Centered Modal</h4>
+                <p>
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                    consectetur ac, vestibulum at eros.
+                </p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
+function Appy() {
+    const [modalShow, setModalShow] = React.useState(false);
+
+    return (
+        <>
+            <Button variant="primary" onClick={() => setModalShow(true)}>
+                Launch vertically centered modal
+            </Button>
+
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+        </>
+    );
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function spotlight1() {
+    return (
+        <h1> PIZZA </h1>
+    );
+}
 
 
 
 export default class Home extends React.Component {
 
     render(){
+        const randInt = getRandomInt(3);
+
         return (
                 <div className="col-sm-12 col-md-9 dev_home_container">
                     <div className="dev_background">
                         <div className="dev_transbox">
 
                             {/* Welcome */}
-                            <h1 className="dev_title_jumbo dev_title"> Welcome to Local Eats </h1>
-                            <h3 className="dev_title" > Helping You Find Locally Owned Eateries in Boston </h3>
+                            <h1 className="dev_title_jumbo dev_title"> Welcome to LocalEats </h1>
+                            <h3 className="dev_title"> Helping You Find Locally Owned Eateries in Boston </h3>
+
                             <hr className="my-4"/>
 
 
                             {/* Find Neighborhood */}
-                            <h1 className="dev_title"> Select a Neighborhood : </h1>
-                            <h5 className="dev_title"> Find a New Restaurant or Revisit Old Favorites </h5>
+                            <h1 className="dev_title"> Select a Neighborhood to Explore: </h1>
+                            <h5 className="dev_title"> Discover eateries in other neighborhoods or revisit old favorites </h5>
                             <form>
                                 <input type="checkbox" id="allston" name="allston" value="allston"/>
                                 <label htmlFor="allston"> &nbsp; Allston </label> <br/>
@@ -44,7 +103,7 @@ export default class Home extends React.Component {
                             {/*<h5 className="dev_title" > We've Highlighted Eateries that Need More Patronage   </h5>*/}
                             {/*<Link to="/map" className="btn btn-primary"> Go To Highlights </Link>*/}
 
-                            <hr className="my-4" style={{color:"white"}}/>
+                            {/*<hr className="my-4" style={{color:"white"}}/>*/}
 
                             {/*<h3 className="dev_title"> About </h3>*/}
                             {/*<h5 className="dev_title"> Need </h5>*/}
@@ -67,6 +126,20 @@ export default class Home extends React.Component {
                             {/*    As a result we are creating a website to assist patrons in*/}
                             {/*    identifying and supporting their local economies by eating local!*/}
                             {/*</p>*/}
+
+
+                        </div>
+                        <div className="dev_transbox">
+                            <h3 className="dev_title"> Spotlight </h3>
+                            <p> View this month's curated selection of locally owned eateries. </p>
+
+                            <h1> {randInt} </h1>
+
+                            {randInt == 1 && spotlight1() }
+
+                            <h3 className="dev_title"> Personal Recommendations </h3>
+                            Sign in to see your personal recommendations. <br/>
+                            <Button> Sign In </Button>
                         </div>
                     </div>
                 </div>
