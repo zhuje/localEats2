@@ -50,10 +50,22 @@ function Appy() {
     );
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function spotlight1() {
+    return (
+        <h1> PIZZA </h1>
+    );
+}
+
+
 
 export default class Home extends React.Component {
 
     render(){
+        const randInt = getRandomInt(3);
 
         return (
                 <div className="col-sm-12 col-md-9 dev_home_container">
@@ -120,6 +132,10 @@ export default class Home extends React.Component {
                         <div className="dev_transbox">
                             <h3 className="dev_title"> Spotlight </h3>
                             <p> View this month's curated selection of locally owned eateries. </p>
+
+                            <h1> {randInt} </h1>
+
+                            {randInt == 1 && spotlight1() }
 
                             <h3 className="dev_title"> Personal Recommendations </h3>
                             Sign in to see your personal recommendations. <br/>
