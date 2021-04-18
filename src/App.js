@@ -8,11 +8,12 @@ import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
 import Popup from "reactjs-popup";
+import Button from "react-bootstrap/Button"
 
-export default class App extends React.Component{
+export default class App extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <BrowserRouter>
                 <div>
                     {/* Nav Bar */}
@@ -24,7 +25,8 @@ export default class App extends React.Component{
                         </a>
 
                         <input className="form-control form-control-dark w-100" type="text"
-                               placeholder="Search for 'pizza' (it will only work for that key phrase) " aria-label="Search"/>
+                               placeholder="Search for 'pizza' (it will only work for that key phrase) "
+                               aria-label="Search"/>
                         <ul className="navbar-nav px-3">
                             <li className="nav-item text-nowrap ">
                                 <Link to="/search" className="btn btn-primary"> Search </Link>
@@ -35,45 +37,51 @@ export default class App extends React.Component{
                     {/* SideBar */}
                     <div className="row">
                         <nav className="col-md-3 d-none d-md-block sidebar">
-                            <div class="position-fixed">
+                            <div class="position-fixed" style={{width: '25%', color:'000000'}}>
                                 <ul className="nav flex-column">
                                     {/* Home */}
-                                    <li className="nav-item active" style={{height:'50'}}>
+                                    <li className="nav-item active">
                                         <a className="nav-link" href="home">
-                                            <i className="fa fa-home" aria-hidden="true" ></i>
-                                            &nbsp;
-                                            Navigate Home
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-home " aria-hidden="true"></i>
+                                                <h4>Home</h4>
+                                            </button>
                                         </a>
                                     </li>
                                     {/* Promotions */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="promotions" style={{height:'50'}}>
-                                            <i className="feather fa fa-money " aria-hidden="true"></i>
-                                            &nbsp;
-                                            Find Promotions
+                                        <a className="nav-link" href="promotions">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="feather fa fa-money "
+                                                   aria-hidden="true"></i>
+                                                <h4>Promotions</h4>
+                                            </button>
                                         </a>
                                     </li>
                                     {/* Profile */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="profile" style={{height:'50'}}>
-                                            <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                                            &nbsp;
-                                            Adjust Profile
+                                        <a className="nav-link" href="profile">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-user-circle-o"
+                                                   aria-hidden="true"></i>
+                                                <h4>Profile</h4>
+                                            </button>
                                         </a>
                                     </li>
                                     {/* Logout */}
                                     <li className="nav-item">
-                                        <Popup trigger={
-                                            <a className="nav-link" href="#" style={{height:'50'}}>
-                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                                &nbsp;
-                                                Log out
-                                            </a>
-                                        } position="right center">
-                                            <div> Future implementations will log the user out. This feature is currently a mock up. </div>
-                                        </Popup>
+                                        <a className="nav-link" href="#">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-sign-out"
+                                                   aria-hidden="true"></i>
+                                                <h4>Log In</h4>
+                                            </button>
+                                        </a>
                                     </li>
-
 
 
                                     {/* Search Result  */}
@@ -105,7 +113,6 @@ export default class App extends React.Component{
                         <Route path="/search" exact component={SearchResult}/>
                         <Route path="/map" exact component={Map}/>
                         <Route path="/stories" exact component={Stories}/>
-
 
 
                         {/* Collapse NavBar w/Hamburger */}
@@ -161,7 +168,7 @@ export default class App extends React.Component{
 
                     </div>
                 </div>
-        </BrowserRouter>
+            </BrowserRouter>
         )
     }
 
