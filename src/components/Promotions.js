@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/Card';
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Button from 'react-bootstrap/Button';
 import Dropdown from "react-bootstrap/Dropdown";

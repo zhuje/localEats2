@@ -15,14 +15,12 @@ import JP from "./components/JP"
 import Popup from "reactjs-popup";
 import {Form, FormControl, Nav, Navbar, Button} from "react-bootstrap";
 
+export default class App extends React.Component {
 
-export default class App extends React.Component{
-
-    render(){
-        return(
+    render() {
+        return (
             <BrowserRouter>
                 <div>
-
                     {/* TOP NAV BAR -- HAMBURGER ON MEDIUM VIEWPORT */}
                     <Navbar bg="dark" expand="md" className="sticky-top navbar-dark flex-md-nowrap p-0">
                         <Navbar.Brand className="col-3 mr-0" href="home" >
@@ -71,32 +69,60 @@ export default class App extends React.Component{
                     {/* SIDEBAR */}
                     <div className="row">
                         <nav className="col-md-3 d-none d-md-block sidebar">
-                            <div className="position-fixed">
+                            <div class="position-fixed" style={{width: '25%', color:'000000'}}>
                                 <ul className="nav flex-column">
                                     {/* Home */}
-                                    <li className="nav-item active" style={{height:'50'}}>
+                                    <li className="nav-item active">
                                         <a className="nav-link" href="home">
-                                            <i className="fa fa-home" aria-hidden="true" ></i>
-                                            &nbsp;
-                                            Navigate Home
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-home " aria-hidden="true"></i>
+                                                <h4>Home</h4>
+                                            </button>
                                         </a>
                                     </li>
                                     {/* Promotions */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="promotions" style={{height:'50'}}>
-                                            <i className="feather fa fa-money " aria-hidden="true"></i>
-                                            &nbsp;
-                                            Find Promotions
+                                        <a className="nav-link" href="promotions">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="feather fa fa-money "
+                                                   aria-hidden="true"></i>
+                                                <h4>Promotions</h4>
+                                            </button>
                                         </a>
                                     </li>
                                     {/* Profile */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="profile" style={{height:'50'}}>
-                                            <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                                            &nbsp;
-                                            Edit Preferences
+                                        <a className="nav-link" href="profile">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-user-circle-o"
+                                                   aria-hidden="true"></i>
+                                                <h4>Profile</h4>
+                                            </button>
                                         </a>
                                     </li>
+                                    {/* Logout */}
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">
+                                            <button className="btn btn-outline-primary btn-sm btn-block"
+                                                    style={{height: '75px'}}>
+                                                <i className="fa fa-sign-out"
+                                                   aria-hidden="true"></i>
+                                                <h4>Log In</h4>
+                                            </button>
+                                        </a>
+                                    </li>
+
+
+                                    {/* Search Result  */}
+                                    {/*<a className="nav-link" href="profile" style={{height:'50'}}>*/}
+                                    {/*        <i className="fa fa-user-circle-o" aria-hidden="true"></i>*/}
+                                    {/*        &nbsp;*/}
+                                    {/*        Edit Preferences*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
                                     {/* Logout */}
                                     {/*<li className="nav-item">*/}
                                     {/*    <Popup trigger={*/}
@@ -124,12 +150,9 @@ export default class App extends React.Component{
                         <Route path="/backbay" exact component={BackBay}/>
                         <Route path="/jp" exact component={JP}/>
 
-
-
-
                     </div>
                 </div>
-        </BrowserRouter>
+            </BrowserRouter>
         )
     }
 
