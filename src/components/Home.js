@@ -146,62 +146,76 @@ function spotlight2() {
 
 export default class Home extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: null,
+        };
+        this.onChangeValue = this.onChangeValue.bind(this);
+        this.randInt = getRandomInt(3);
+    }
+
+    onChangeValue(event) {
+        console.log(event.target.value);
+        this.setState({
+                          name: event.target.value,
+                      });
+    }
+
+    state = {
+        name: null,
+    }
+
+    selectAllston = () => {
+        this.setState({
+                          name: "allston",
+                      });
+    };
+    selectBackBay = () => {
+        this.setState({
+                          name: "backbay",
+                      });
+    };
+    selectJP = () => {
+        this.setState({
+                          name: "jp",
+                      });
+    };
+
     render(){
-        const randInt = getRandomInt(3);
+
 
         return (
+
                 <div className="col-sm-12 col-md-9 dev_home_container">
                     <div className="dev_background">
                         <div className="dev_transbox">
 
-                            {/* Welcome */}
+                            {/* WELCOME */}
                             <h1 className="dev_title_jumbo dev_title_max"> Welcome to LocalEats </h1>
                             <h3 className="dev_title"> Helping You Find Small Locally Owned Eateries in Boston </h3>
+                            <hr  className="dev_home_hr my-4"/>
 
-                            <hr className="my-4"/>
 
-
-                            {/* Find Neighborhood */}
+                            {/* FIND NEIGHBORHOODS */}
                             <h1 className="dev_title"> Select a Neighborhood to Explore: </h1>
                             <h5 className="dev_title"> Discover eateries in other neighborhoods or revisit old favorites </h5>
-                            {/*<form>*/}
-                            {/*    <input type="checkbox" id="allston" name="allston" value="allston"/>*/}
-                            {/*    <label htmlFor="allston"> &nbsp; Allston </label> <br/>*/}
-                            {/*    <input type="checkbox" id="backbay" name="backbay" value="backbay"/>*/}
-                            {/*    <label htmlFor="backbay"> &nbsp; Back Bay </label> <br/>*/}
-                            {/*    <input type="checkbox"  id="jamaica" name="jamaica" value="jamaica"/>*/}
-                            {/*    <label htmlFor="jamaica"> &nbsp; Jamaica Plain </label> <br/>*/}
-                            {/*</form>*/}
 
-
-                            <div className="form-check dev_home_radio">
-                                <input className="form-check-input" type="radio"
-                                       name="flexRadioDefault" id="flexRadioDefault1"/>
-                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                        Allston
-                                    </label>
+                            {/* RADIO BUTTON GROUP*/}
+                            <div>
+                                <input onClick={this.selectAllston} type="radio" value="a" name="a" /> Allston <br/>
+                                <input onClick={this.selectBackBay} type="radio" value="b" name="a" /> Back Bay <br/>
+                                <input onClick={this.selectJP} type="radio" value="c" name="a" /> Jamaica Plain <br/>
                             </div>
 
-                            <div className="form-check dev_home_radio">
-                                <input className="form-check-input" type="radio"
-                                       name="flexRadioDefault" id="flexRadioDefault2" checked/>
-                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                        Back Bay
-                                    </label>
-                            </div>
+                            {this.state.name !== null && (
+                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Submit </Link>
+                            )}
 
-                            <div className="form-check dev_home_radio">
-                                <input className="form-check-input" type="radio"
-                                       name="flexRadioDefault" id="flexRadioDefault3" checked/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault3">
-                                    Jamaica Plains
-                                </label>
-                            </div>
-                            <br/>
-
-                            <Link to="/search" className="btn btn-primary" style={{width:"33%"}}> Submit </Link>
 
                         </div>
+
+                        {/* PERSONAL RECOMMENDATIONS */}
                         <div className="dev_transbox">
 
                             <h3 className="dev_title"> Personal Recommendations </h3>
@@ -210,13 +224,12 @@ export default class Home extends React.Component {
                             <a href={"profile"}>preference</a>
                             &nbsp;
                             we suggest trying these eateries: <br/>
-                            (NOTE: This is a prototype and the backend for this feature has not been built.
-                             Editing your preferences will not impact what is shown here. )
+
                             <br/><br/>
 
-                            {randInt == 0 && spotlight0() }
-                            {randInt == 1 && spotlight1() }
-                            {randInt == 2 && spotlight2() }
+                            {this.randInt == 0 && spotlight0() }
+                            {this.randInt == 1 && spotlight1() }
+                            {this.randInt == 2 && spotlight2() }
 
 
 

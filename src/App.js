@@ -7,6 +7,8 @@ import Profile from "./components/Profile"
 import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
+import Allston from "./components/Allston"
+
 import Popup from "reactjs-popup";
 import {Form, FormControl, Nav, Navbar, Button} from "react-bootstrap";
 
@@ -53,7 +55,7 @@ export default class App extends React.Component{
                         </Navbar.Collapse>
                         {/* Search Bar */}
                         <input className="form-control form-control-dark w-100 d-none d-md-block " type="text"
-                               placeholder="Search for 'pizza' (it will only work for that key phrase) " aria-label="Search"/>
+                               placeholder="Search for a Neighborhood (Allston) " aria-label="Search"/>
                         <ul className="navbar-nav px-3 d-none d-md-block">
                             <li className="nav-item text-nowrap ">
                                 <Link to="/search" className="btn btn-primary"> Search </Link>
@@ -115,7 +117,7 @@ export default class App extends React.Component{
                         <Route path="/search" exact component={SearchResult}/>
                         <Route path="/map" exact component={Map}/>
                         <Route path="/stories" exact component={Stories}/>
-
+                        <Route path="/allston" exact component={Allston}/>
 
 
 
