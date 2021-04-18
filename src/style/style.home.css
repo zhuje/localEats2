@@ -19,8 +19,10 @@ div.dev_transbox {
     margin: 30px;
     padding: 57px;
     background-color: rgba(0,0,0,0.8);
-    opacity: 0.8;
+    opacity: 0.9;
     color: white;
+    border-radius: 10px;
+
     /*width: 50%;*/
 }
 
@@ -47,3 +49,23 @@ div.dev_transbox {
     min-height: 100%;
 }
 
+.dev_card_text_style{
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.card-img-top {
+    max-height: 300px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+.dev_card_body {
+    text-align: center;
+}
+
+.dev_title_max{
+    font-size: 3rem;
+    font-weight: 200;
+
+}

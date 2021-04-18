@@ -8,6 +8,8 @@ import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
 import Popup from "reactjs-popup";
+import {Form, FormControl, Nav, Navbar, Button} from "react-bootstrap";
+
 
 export default class App extends React.Component{
 
@@ -15,27 +17,56 @@ export default class App extends React.Component{
         return(
             <BrowserRouter>
                 <div>
-                    {/* Nav Bar */}
-                    <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-                        <a className="navbar-brand col-sm-0 col-md-3 mr-0" href="home">
-                            <h1 className="dev_title">
-                                LocalEats
-                            </h1>
-                        </a>
 
-                        <input className="form-control form-control-dark w-100" type="text"
+                    {/* TOP NAV BAR -- HAMBURGER ON MEDIUM VIEWPORT */}
+                    <Navbar bg="dark" expand="md" className="sticky-top navbar-dark flex-md-nowrap p-0">
+                        <Navbar.Brand className="col-3 mr-0" href="home" >
+                            <h1 className="dev_title "> LocalEats </h1>
+                        </Navbar.Brand>
+                        <Navbar.Toggle className="dev_hamburger_margin"  aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav" >
+                            {/* Navigation Links */}
+                            <div className="d-block d-md-none">
+                                <Nav className="mr-auto">
+                                    <Nav.Link className="dev_hamburger_nav-link" href="home">
+                                        <i className="fa fa-home" aria-hidden="true" ></i>
+                                        &nbsp;
+                                        Navigate Home
+                                    </Nav.Link>
+                                    <Nav.Link className="dev_hamburger_nav-link" href="#link">
+                                        <i className="feather fa fa-money " aria-hidden="true"></i>
+                                        &nbsp;
+                                        Find Promotions
+                                    </Nav.Link>
+                                    <Nav.Link className="dev_hamburger_nav-link" href="#link">
+                                        <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        &nbsp;
+                                        Edit Profile
+                                    </Nav.Link>
+                                </Nav>
+                                <Form className="dev_hamburger_nav-link" inline>
+                                    <FormControl  type="text" placeholder="Search"  />
+                                    <Button variant="primary">Search</Button>
+                                </Form>
+
+                            </div>
+                        </Navbar.Collapse>
+                        {/* Search Bar */}
+                        <input className="form-control form-control-dark w-100 d-none d-md-block " type="text"
                                placeholder="Search for 'pizza' (it will only work for that key phrase) " aria-label="Search"/>
-                        <ul className="navbar-nav px-3">
+                        <ul className="navbar-nav px-3 d-none d-md-block">
                             <li className="nav-item text-nowrap ">
                                 <Link to="/search" className="btn btn-primary"> Search </Link>
                             </li>
                         </ul>
-                    </nav>
 
-                    {/* SideBar */}
+                    </Navbar>
+
+
+                    {/* SIDEBAR */}
                     <div className="row">
                         <nav className="col-md-3 d-none d-md-block sidebar">
-                            <div class="position-fixed">
+                            <div className="position-fixed">
                                 <ul className="nav flex-column">
                                     {/* Home */}
                                     <li className="nav-item active" style={{height:'50'}}>
@@ -58,42 +89,21 @@ export default class App extends React.Component{
                                         <a className="nav-link" href="profile" style={{height:'50'}}>
                                             <i className="fa fa-user-circle-o" aria-hidden="true"></i>
                                             &nbsp;
-                                            Adjust Profile
+                                            Edit Preferences
                                         </a>
                                     </li>
                                     {/* Logout */}
-                                    <li className="nav-item">
-                                        <Popup trigger={
-                                            <a className="nav-link" href="#" style={{height:'50'}}>
-                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                                &nbsp;
-                                                Log out
-                                            </a>
-                                        } position="right center">
-                                            <div> Future implementations will log the user out. This feature is currently a mock up. </div>
-                                        </Popup>
-                                    </li>
-
-
-
-                                    {/* Search Result  */}
                                     {/*<li className="nav-item">*/}
-                                    {/*    <a className="nav-link" href="search">*/}
-                                    {/*        <i className="fa fa-sign-out" aria-hidden="true"></i>*/}
-                                    {/*        &nbsp;*/}
-                                    {/*        Search Result*/}
-                                    {/*    </a>*/}
+                                    {/*    <Popup trigger={*/}
+                                    {/*        <a className="nav-link" href="#" style={{height:'50'}}>*/}
+                                    {/*            <i className="fa fa-sign-out" aria-hidden="true"></i>*/}
+                                    {/*            &nbsp;*/}
+                                    {/*            Log out*/}
+                                    {/*        </a>*/}
+                                    {/*    } position="right center">*/}
+                                    {/*        <div> Future implementations will log the user out. This feature is currently a mock up. </div>*/}
+                                    {/*    </Popup>*/}
                                     {/*</li>*/}
-
-                                    {/* Search Result  */}
-                                    {/*<li className="nav-item">*/}
-                                    {/*    <a className="nav-link" href="stories">*/}
-                                    {/*        <i className="fa fa-sign-out" aria-hidden="true"></i>*/}
-                                    {/*        &nbsp;*/}
-                                    {/*        View Featured Eateries*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
-
                                 </ul>
                             </div>
                         </nav>
@@ -108,56 +118,7 @@ export default class App extends React.Component{
 
 
 
-                        {/* Collapse NavBar w/Hamburger */}
-                        {/*<nav className=" col-3 navbar navbar-expand-lg navbar-light bg-light">*/}
-                        {/*    <a className="navbar-brand" href="#"></a>*/}
-                        {/*    <button className="navbar-toggler" type="button"*/}
-                        {/*            data-toggle="collapse" data-target="#navbarSupportedContent"*/}
-                        {/*            aria-controls="navbarSupportedContent" aria-expanded="false"*/}
-                        {/*            aria-label="Toggle navigation">*/}
-                        {/*        <span className="navbar-toggler-icon"></span>*/}
-                        {/*    </button>*/}
 
-                        {/*    <div className="collapse navbar-collapse"*/}
-                        {/*         id="navbarSupportedContent">*/}
-                        {/*        <ul className="navbar-nav mr-auto">*/}
-                        {/*            <li className="nav-item active">*/}
-                        {/*                <a className="nav-link" href="#">Home <span*/}
-                        {/*                    className="sr-only">(current)</span></a>*/}
-                        {/*            </li>*/}
-                        {/*            <li className="nav-item">*/}
-                        {/*                <a className="nav-link" href="#">Link</a>*/}
-                        {/*            </li>*/}
-                        {/*            <li className="nav-item dropdown">*/}
-                        {/*                <a className="nav-link dropdown-toggle" href="#"*/}
-                        {/*                   id="navbarDropdown" role="button"*/}
-                        {/*                   data-toggle="dropdown" aria-haspopup="true"*/}
-                        {/*                   aria-expanded="false">*/}
-                        {/*                    Dropdown*/}
-                        {/*                </a>*/}
-                        {/*                <div className="dropdown-menu"*/}
-                        {/*                     aria-labelledby="navbarDropdown">*/}
-                        {/*                    <a className="dropdown-item" href="#">Action</a>*/}
-                        {/*                    <a className="dropdown-item" href="#">Another*/}
-                        {/*                        action</a>*/}
-                        {/*                    <div className="dropdown-divider"></div>*/}
-                        {/*                    <a className="dropdown-item" href="#">Something else*/}
-                        {/*                        here</a>*/}
-                        {/*                </div>*/}
-                        {/*            </li>*/}
-                        {/*            <li className="nav-item">*/}
-                        {/*                <a className="nav-link disabled" href="#">Disabled</a>*/}
-                        {/*            </li>*/}
-                        {/*        </ul>*/}
-                        {/*        <form className="form-inline my-2 my-lg-0">*/}
-                        {/*            <input className="form-control mr-sm-2" type="search"*/}
-                        {/*                   placeholder="Search" aria-label="Search"/>*/}
-                        {/*            <button className="btn btn-outline-success my-2 my-sm-0"*/}
-                        {/*                    type="submit">Search*/}
-                        {/*            </button>*/}
-                        {/*        </form>*/}
-                        {/*    </div>*/}
-                        {/*</nav>*/}
 
                     </div>
                 </div>
