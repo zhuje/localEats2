@@ -6,6 +6,7 @@ import 'reactjs-popup/dist/index.css';
 import {Multiselect} from "multiselect-react-dropdown";
 import {DropdownButton, Dropdown, Container, Row, Col, Button} from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -67,12 +68,14 @@ export default class SearchResult extends React.Component{
     };
 
 
-    render() {
 
+
+    render() {
 
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
+
 
                     {/* JUMBOTRON */}
                     <div className="jumbotron dev_background_allston">
