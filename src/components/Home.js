@@ -4,59 +4,141 @@ import '../style/style.app.css';
 import '../style/style.home.css'
 import {Link} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
+import {Card, CardDeck} from "react-bootstrap";
 
-function MyVerticallyCenteredModal(props) {
-    return (
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <h4>Centered Modal</h4>
-                <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
-                </p>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
-        </Modal>
-    );
-}
 
-function Appy() {
-    const [modalShow, setModalShow] = React.useState(false);
-
-    return (
-        <>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-                Launch vertically centered modal
-            </Button>
-
-            <MyVerticallyCenteredModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
-        </>
-    );
-}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function spotlight0() {
+    return (
+        <CardDeck>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                            src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Lone Star </p>
+                    <a href={"http://deepellum-allston.com/lonestar/food.php"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Allston </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                         src="https://s3-media0.fl.yelpcdn.com/bphoto/j_PwWHy3hE5m0R1A5SYKYg/o.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Tres Gatos </p>
+                    <a href={"http://www.tresgatosjp.com/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Jamaica Plain </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                             src={"https://images.getbento.com/accounts/2e611a9c379beef9626facce2b3ec45e/media/images/33230Saltie_Girl_61.JPG"}
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Saltie Girl </p>
+                    <a href={"https://www.saltiegirl.com/menu/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Back Bay </small>
+                </Card.Footer>
+            </Card>
+        </CardDeck>
+
+    );
+}
+
 function spotlight1() {
     return (
-        <h1> PIZZA </h1>
+        <CardDeck>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src="https://tentables.net/wp-content/uploads/2019/04/pasta-thursdays-ten-tables-jp.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Ten Tables </p>
+                    <a href={"https://tentables.net/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Jamaica Plains </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src="https://s3-media0.fl.yelpcdn.com/bphoto/bV9ednA92qFJ-Q_Mz04bYg/o.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Serfina </p>
+                    <a href={"https://serafinaboston.com/menu/back-bay/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Back Bay </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src={"https://www.yumofchina.com/wp-content/uploads/2017/07/Spicy-Sichuan-Chicken3.jpg"}
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Mala </p>
+                    <a href={"http://www.allstonmala.com/menu.html"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Allston </small>
+                </Card.Footer>
+            </Card>
+        </CardDeck>
+    );
+}
+
+function spotlight2() {
+    return (
+        <CardDeck>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src="https://parishcafe.com/wordpress/wp-content/uploads/2018/02/BuksCamb-100717-15.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> The Parish Cafe </p>
+                    <a href={"https://parishcafe.com/menu/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}> Back Bay  </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src="https://s3-media0.fl.yelpcdn.com/bphoto/dR2Fd0H2PboNK1UPCBQrDQ/o.jpg"
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Lulu's </p>
+                    <a href={"https://www.lulusallston.com/menu.html"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}>  Allston  </small>
+                </Card.Footer>
+            </Card>
+            <Card>
+                <Card.Img className="card-img-top" variant="top"
+                          src={"https://s3-media0.fl.yelpcdn.com/bphoto/nvH1amO4pFvFzRLZ4IKMmQ/o.jpg"}
+                />
+                <Card.Body className={"dev_card_body"}>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}>  Blue Nile </p>
+                    <a href={"https://www.bluenileincjp.com/"} target={"_blank"}> View Menu </a>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted" style={{color:"black"}}>   Jamaica Plain </small>
+                </Card.Footer>
+            </Card>
+        </CardDeck>
     );
 }
 
@@ -64,82 +146,93 @@ function spotlight1() {
 
 export default class Home extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: null,
+        };
+        this.onChangeValue = this.onChangeValue.bind(this);
+        this.randInt = getRandomInt(3);
+    }
+
+    onChangeValue(event) {
+        console.log(event.target.value);
+        this.setState({
+                          name: event.target.value,
+                      });
+    }
+
+    state = {
+        name: null,
+    }
+
+    selectAllston = () => {
+        this.setState({
+                          name: "allston",
+                      });
+    };
+    selectBackBay = () => {
+        this.setState({
+                          name: "backbay",
+                      });
+    };
+    selectJP = () => {
+        this.setState({
+                          name: "jp",
+                      });
+    };
+
     render(){
-        const randInt = getRandomInt(3);
+
 
         return (
+
                 <div className="col-sm-12 col-md-9 dev_home_container">
                     <div className="dev_background">
                         <div className="dev_transbox">
 
-                            {/* Welcome */}
-                            <h1 className="dev_title_jumbo dev_title"> Welcome to LocalEats </h1>
-                            <h3 className="dev_title"> Helping You Find Locally Owned Eateries in Boston </h3>
+                            {/* WELCOME */}
+                            <h1 className="dev_title_jumbo dev_title_max"> Welcome to LocalEats </h1>
+                            <h3 className="dev_title"> Helping You Find Small Locally Owned Eateries in Boston </h3>
+                            <hr  className="dev_home_hr my-4"/>
 
-                            <hr className="my-4"/>
 
-
-                            {/* Find Neighborhood */}
+                            {/* FIND NEIGHBORHOODS */}
                             <h1 className="dev_title"> Select a Neighborhood to Explore: </h1>
                             <h5 className="dev_title"> Discover eateries in other neighborhoods or revisit old favorites </h5>
-                            <form>
-                                <input type="checkbox" id="allston" name="allston" value="allston"/>
-                                <label htmlFor="allston"> &nbsp; Allston </label> <br/>
-                                <input type="checkbox" disabled={true} id="backbay" name="backbay" value="backbay"/>
-                                <label htmlFor="backbay"> &nbsp; Back Bay </label> <br/>
-                                <input type="checkbox" disabled={true} id="jamaica" name="jamaica" value="jamaica"/>
-                                <label htmlFor="jamaica"> &nbsp; Jamaica Plain </label> <br/>
-                            </form>
 
-                            <Link to="/search" className="btn btn-primary"> Submit </Link>
+                            {/* RADIO BUTTON GROUP*/}
+                            <div>
+                                <input onClick={this.selectAllston} type="radio" value="a" name="a" /> Allston <br/>
+                                <input onClick={this.selectBackBay} type="radio" value="b" name="a" /> Back Bay <br/>
+                                <input onClick={this.selectJP} type="radio" value="c" name="a" /> Jamaica Plain <br/>
+                            </div>
 
-                            {/*<br/><br/>*/}
-                            {/*<h2 className="dev_title"> New to Boston? </h2>*/}
-                            {/*<h5 className="dev_title" > Look at the Map to Find your Neighborhood  </h5>*/}
-                            {/*<Link to="/map" className="btn btn-primary"> Go To Map </Link>*/}
-
-                            {/*<br/><br/>*/}
-                            {/*<h2 className="dev_title"> Featured Restaurants that needs your Support  </h2>*/}
-                            {/*<h5 className="dev_title" > We've Highlighted Eateries that Need More Patronage   </h5>*/}
-                            {/*<Link to="/map" className="btn btn-primary"> Go To Highlights </Link>*/}
-
-                            {/*<hr className="my-4" style={{color:"white"}}/>*/}
-
-                            {/*<h3 className="dev_title"> About </h3>*/}
-                            {/*<h5 className="dev_title"> Need </h5>*/}
-                            {/*Currently, there's no great way to search specifically*/}
-                            {/*for locally owned restaurants in Boston -- sites like Yelp and*/}
-                            {/*Google Maps don't have provide a mechanism for this. And sites*/}
-                            {/*that do provide a list of these eateries don't have efficient*/}
-                            {/*ways to view or filter through restaurants. We saw a need to*/}
-                            {/*develop a site that marries usability and a dedication to showing only*/}
-                            {/*small, locally owned, and non-franchised eateries.*/}
-                            {/*<p>*/}
-                            {/*</p>*/}
-                            {/*<h5 className="dev_title"> Insight </h5>*/}
-                            {/*<p>*/}
-                            {/*    The economic fallout of COVID has caused many small,*/}
-                            {/*    locally owned restaurants to close. Restaurants provide us a way*/}
-                            {/*    to gather and socialize -- at times they are cultural hubs.*/}
-                            {/*    Many want to help preserve these institutions and ensure they*/}
-                            {/*    still have a seat at their favorite restaurant when post-COVID.*/}
-                            {/*    As a result we are creating a website to assist patrons in*/}
-                            {/*    identifying and supporting their local economies by eating local!*/}
-                            {/*</p>*/}
+                            {this.state.name !== null && (
+                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Submit </Link>
+                            )}
 
 
                         </div>
+
+                        {/* PERSONAL RECOMMENDATIONS */}
                         <div className="dev_transbox">
-                            <h3 className="dev_title"> Spotlight </h3>
-                            <p> View this month's curated selection of locally owned eateries. </p>
-
-                            <h1> {randInt} </h1>
-
-                            {randInt == 1 && spotlight1() }
 
                             <h3 className="dev_title"> Personal Recommendations </h3>
-                            Sign in to see your personal recommendations. <br/>
-                            <Button> Sign In </Button>
+
+                            Based on your &nbsp;
+                            <a href={"profile"}>preference</a>
+                            &nbsp;
+                            we suggest trying these eateries: <br/>
+
+                            <br/><br/>
+
+                            {this.randInt == 0 && spotlight0() }
+                            {this.randInt == 1 && spotlight1() }
+                            {this.randInt == 2 && spotlight2() }
+
+
+
                         </div>
                     </div>
                 </div>
