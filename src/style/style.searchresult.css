@@ -66,6 +66,25 @@
 
 }
 
+.dev_background_backbay{
+    background: url(https://www.shoreexcursionsgroup.com/img/tour/CNBOPWBWTBBB-2.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.dev_background_jp{
+    background: url(https://zumpermedia.s3.amazonaws.com/blog/wp-content/uploads/2019/03/15110214/jamaica-pond.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+
+
 div.dev_transbox_searchResults {
     text-align: center;
     margin: 30px;

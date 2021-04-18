@@ -4,10 +4,12 @@ import 'reactjs-popup/dist/index.css';
 import { Dropdown, Form} from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
+function goBack() {
+    window.history.back();
+}
 
 
-
-export default class Allston extends React.Component{
+export default class BackBay extends React.Component{
 
 
     state = {
@@ -76,22 +78,21 @@ export default class Allston extends React.Component{
     }
 
 
-
-
-
     render() {
 
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
 
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out"  />
-                    </Form.Group>
+                    <button className={"btn btn-primary mb-1"}  onClick={()=> goBack()}>
+                        <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                        &nbsp; Back
+                    </button>
+
 
 
                     {/* JUMBOTRON */}
-                    <div className="jumbotron dev_background_allston">
+                    <div className="jumbotron dev_background_backbay">
                         <div className="dev_transbox_searchResults">
                             <div className="container">
                                 <h1 className="display-4"> Allston  </h1>
@@ -126,8 +127,8 @@ export default class Allston extends React.Component{
                         <div>
 
                             <div className="form-check">
-                                    <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedDelivery} />
+                                <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
+                                       id="defaultCheck1" checked={this.state.checkedDelivery} />
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries that Deliver
@@ -141,7 +142,7 @@ export default class Allston extends React.Component{
                         <div>
                             <div className="form-check">
                                 <input onClick={ this.resetOutdoor } className="form-check-input checkbox" type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedOutdoor}/>
+                                       id="defaultCheck1" checked={this.state.checkedOutdoor}/>
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries with Outdoor Dining
@@ -275,13 +276,13 @@ export default class Allston extends React.Component{
                                             </p>
                                             <p>
                                                 Hours of Operation:
-                                                    Sunday 10:30AM - 1AM <br/>
-                                                    Monday 11:30AM - 1AM <br/>
-                                                    Tuesday 11:30AM - 1AM <br/>
-                                                    Wednesday 11:30AM - 1AM <br/>
-                                                    Thursday 11:30AM - 1AM <br/>
-                                                    Friday 11:30AM - 1AM <br/>
-                                                    Saturday 10:30AM - 1AM <br/>
+                                                Sunday 10:30AM - 1AM <br/>
+                                                Monday 11:30AM - 1AM <br/>
+                                                Tuesday 11:30AM - 1AM <br/>
+                                                Wednesday 11:30AM - 1AM <br/>
+                                                Thursday 11:30AM - 1AM <br/>
+                                                Friday 11:30AM - 1AM <br/>
+                                                Saturday 10:30AM - 1AM <br/>
 
                                             </p>
                                             <p>
@@ -340,13 +341,13 @@ export default class Allston extends React.Component{
                                             </p>
                                             <p>
                                                 Hours of Operation:
-                                                    Sunday 11AM - 12AM <br/>
-                                                    Monday 11AM - 12AM <br/>
-                                                    Tuesday 11AM - 12AM <br/>
-                                                    Wednesday 11AM - 12AM <br/>
-                                                    Thursday 11AM - 12AM <br/>
-                                                    Friday 11AM - 12AM <br/>
-                                                    Saturday 11AM - 12AM <br/>
+                                                Sunday 11AM - 12AM <br/>
+                                                Monday 11AM - 12AM <br/>
+                                                Tuesday 11AM - 12AM <br/>
+                                                Wednesday 11AM - 12AM <br/>
+                                                Thursday 11AM - 12AM <br/>
+                                                Friday 11AM - 12AM <br/>
+                                                Saturday 11AM - 12AM <br/>
 
                                             </p>
                                             <p>

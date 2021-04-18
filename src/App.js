@@ -8,6 +8,9 @@ import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
 import Allston from "./components/Allston"
+import BackBay from "./components/BackBay"
+import JP from "./components/JP"
+
 
 import Popup from "reactjs-popup";
 import {Form, FormControl, Nav, Navbar, Button} from "react-bootstrap";
@@ -118,6 +121,8 @@ export default class App extends React.Component{
                         <Route path="/map" exact component={Map}/>
                         <Route path="/stories" exact component={Stories}/>
                         <Route path="/allston" exact component={Allston}/>
+                        <Route path="/backbay" exact component={BackBay}/>
+                        <Route path="/jp" exact component={JP}/>
 
 
 
