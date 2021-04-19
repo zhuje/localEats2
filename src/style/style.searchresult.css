@@ -75,13 +75,23 @@
 }
 
 .dev_background_jp{
-    background: url(https://www.publicgardens.org/sites/default/files/styles/1000x400_garden_image/public/images/Garden/Arnold%20Arboretum%20of%20Harvard%20University.jpg?itok=Kc0IDcum)  ;
+    background: url(https://arboretum.harvard.edu/wp-content/uploads/2020/11/Peters-Hill-November-Friedman-2.jpg)  ;
     background-size: cover;
     position: relative;
     overflow: hidden;
     height: 100%;
 
 }
+
+.dev_background_error{
+    background: url(https://static.onecms.io/wp-content/uploads/sites/28/2021/02/23/boston-massachusetts-BOSTONTG0221.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+}
+
 
 
 

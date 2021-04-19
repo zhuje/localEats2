@@ -4,7 +4,9 @@ import 'reactjs-popup/dist/index.css';
 import { Dropdown, Form} from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-
+function goBack() {
+    window.history.back();
+}
 
 
 export default class Allston extends React.Component{
@@ -85,9 +87,11 @@ export default class Allston extends React.Component{
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
 
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out"  />
-                    </Form.Group>
+
+                    <button className={"btn btn-primary mb-1"}  onClick={()=> goBack()}>
+                        <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                        &nbsp; Back
+                    </button>
 
 
                     {/* JUMBOTRON */}
@@ -202,6 +206,10 @@ export default class Allston extends React.Component{
                                         </div>
                                         <div className="col-sm">
                                             <p>
+                                                Eatery Type: <br/>
+                                                Asian
+                                            </p>
+                                            <p>
                                                 Yelp Rating: <br/>
                                                 <a href="https://www.yelp.com/biz/mala-restaurant-boston">
                                                     3.5 out of 5 Stars (263 Reviews)
@@ -268,13 +276,18 @@ export default class Allston extends React.Component{
                                         </div>
                                         <div className="col-sm">
                                             <p>
+                                                Eatery Type: <br/>
+                                                American
+                                            </p>
+                                            <p>
                                                 Yelp Rating: <br/>
                                                 <a href="https://www.yelp.com/biz/lulus-allston-boston-4">
                                                     4 out of 5 Stars (495 Reviews)
                                                 </a>
                                             </p>
                                             <p>
-                                                Hours of Operation:
+                                                Hours of Operation: <br/>
+
                                                     Sunday 10:30AM - 1AM <br/>
                                                     Monday 11:30AM - 1AM <br/>
                                                     Tuesday 11:30AM - 1AM <br/>
@@ -333,13 +346,17 @@ export default class Allston extends React.Component{
                                         </div>
                                         <div className="col-sm">
                                             <p>
+                                                Eatery Type: <br/>
+                                                Mexican
+                                            </p>
+                                            <p>
                                                 Yelp Rating: <br/>
                                                 <a href="https://www.yelp.com/biz/lone-star-taco-bar-allston">
                                                     4 out of 5 Stars (495 Reviews)
                                                 </a>
                                             </p>
                                             <p>
-                                                Hours of Operation:
+                                                Hours of Operation: <br/>
                                                     Sunday 11AM - 12AM <br/>
                                                     Monday 11AM - 12AM <br/>
                                                     Tuesday 11AM - 12AM <br/>

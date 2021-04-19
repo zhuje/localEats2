@@ -76,7 +76,7 @@ function spotlight1() {
                           src="https://s3-media0.fl.yelpcdn.com/bphoto/bV9ednA92qFJ-Q_Mz04bYg/o.jpg"
                 />
                 <Card.Body className={"dev_card_body"}>
-                    <p className={"dev_card_text_style"} style={{color:"black"}}> Serfina </p>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Serafina </p>
                     <a href={"https://serafinaboston.com/menu/back-bay/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
                 <Card.Footer>
