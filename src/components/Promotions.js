@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Component, useState} from "react";
 import 'reactjs-popup/dist/index.css'
 import Button from 'react-bootstrap/Button';
 import Dropdown from "react-bootstrap/Dropdown";
@@ -6,6 +6,8 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import "../style/style.promotions.css"
 
 import Modal from "react-bootstrap/Modal";
+
+const pp = [];
 
 function MyVerticallyCenteredModal(props) {
     return (
@@ -33,13 +35,70 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
-function Alot() {
+function MyModalForSaved(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Saved Promotions:
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>
+                    {pp.length > 0 && (pp.map((data, i) => (
+                        <div key={i}>
+                            {data}
+                        </div>
+                    )))}
+                    {pp.length <= 0 && ("No saved promotions! Add some you like by clicking on the blue 'Save to profile' button.")}
+                </p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
+function Alot2() {
     const [modalShow, setModalShow] = React.useState(false);
+
+    function helpMe2() {
+        setModalShow(true);
+    }
 
     return (
         <>
             <button type="button"
-                    className="btn btn-primary btn-sm btn-block" onClick={() => setModalShow(true)} >Save
+                    className="btn btn-primary" style={{width:'35%', height: '200%'}} onClick={helpMe2}>Saved Promotions</button>
+
+            <MyModalForSaved
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+        </>
+    );
+}
+
+function Alot(props) {
+    const [modalShow, setModalShow] = React.useState(false);
+
+    function helpMe() {
+        setModalShow(true);
+        if (!pp.includes(props.info)) {
+            pp.push(props.info);
+        }
+    }
+
+    return (
+        <>
+            <button type="button"
+                    className="btn btn-primary btn-sm btn-block" onClick={helpMe}>Save
                 to profile</button>
 
             <MyVerticallyCenteredModal
@@ -58,7 +117,8 @@ export default class Promotions extends React.Component {
             backBay: false,
             jp: true,
             alph: false,
-            expir: true
+            expir: true,
+            arr: false
         };
     }
 
@@ -101,6 +161,7 @@ export default class Promotions extends React.Component {
     };
 
     render() {
+
         const {allston} = this.state;
         const {backBay} = this.state;
         const {jp} = this.state;
@@ -143,7 +204,7 @@ export default class Promotions extends React.Component {
                                            onClick={this.sortExpir}>Expiration</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                    <button type="button" className="btn btn-primary" style={{width:'35%', height: '200%'}}>Saved Promotions</button>
+                    <Alot2/>
                 </div>
 
                 {/* ALLSTON ALPH*/}
@@ -162,7 +223,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all enchiladas until April 30th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lone Star Taco Bar - Half off all enchiladas until April 30th. - Expires Apr 30th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 30th,
                                         2021</small></p>
@@ -180,7 +241,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">10% off all pickup orders over $50. Expires May 2nd. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lone Star Taco Bar - 10% off all pickup orders over $50. - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -200,7 +261,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$4 beers during happy hour! 2 - 6 PM until May 1st.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - $4 beers during happy hour! 2 - 6 PM - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -220,7 +281,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all vegan appetizers until May 3rd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - Half off all vegan appetizers - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -242,7 +303,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Free delivery on orders above $30. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - Free delivery on orders above $30. - Expires May 7th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>
@@ -262,7 +323,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Mala - 15% off any order above $30. Pickup or Dine-In only. - Expires Apr 28th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 28th,
                                         2021</small></p>
@@ -285,7 +346,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Free side rice with any large combo meal. Pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Mala - Free side rice with any large combo meal. Pickup only. - Expires Apr 29th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 29th,
                                         2021</small></p>
@@ -303,7 +364,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all drinks until May 4th. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Mala - Half off all drinks. Dine-In only. - Expires May 4th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -330,7 +391,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer" style={{textAlign:'center'}}>
-                                    <Alot/>
+                                    <Alot info={"Mala - 15% off any order above $30. Pickup or Dine-In only. - Expires Apr 28th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 28th,
                                         2021</small></p>
@@ -348,7 +409,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Free side rice with any large combo meal. Pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Mala - Free side rice with any large combo meal. Pickup only. - Expires Apr 29th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 29th,
                                         2021</small></p>
@@ -368,7 +429,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all enchiladas until April 30th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lone Star Taco Bar - Half off all enchiladas until April 30th. - Expires Apr 30th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 30th,
                                         2021</small></p>
@@ -388,7 +449,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$4 beers during happy hour! 2 - 6 PM until May 1st.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - $4 beers during happy hour! 2 - 6 PM - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -410,7 +471,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">10% off all pickup orders over $50. Expires May 2nd. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lone Star Taco Bar - 10% off all pickup orders over $50. - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -429,7 +490,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all vegan appetizers until May 3rd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - Half off all vegan appetizers - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -451,7 +512,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off all drinks until May 4th. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Mala - Half off all drinks. Dine-In only. - Expires May 4th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -469,7 +530,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Free delivery on orders above $30. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Lulu's - Free delivery on orders above $30. - Expires May 7th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>
@@ -496,7 +557,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Canary Square - 10% off any order above $50. Pickup or Dine-In only. - Expires Apr 26th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 26th,
                                         2021</small></p>
@@ -514,7 +575,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Tres Gatos - $5 margaritas. Dine-In only. - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -534,7 +595,7 @@ export default class Promotions extends React.Component {
                                         for pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Zesto's Pizza - Buy one large pizza get one free! - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -554,7 +615,7 @@ export default class Promotions extends React.Component {
                                         2nd. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Ten Tables - Dollar oysters from 12PM - 5PM - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -576,7 +637,7 @@ export default class Promotions extends React.Component {
                                         noodle dish. Pickup only. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Noodle Barn - Any free side with purchase of large noodle dish. - Expires May 4th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -595,7 +656,7 @@ export default class Promotions extends React.Component {
                                         Expires May 5th. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"The Haven - $5 Draft Beers between 3 PM and 6 PM. - Expires May 5th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -616,7 +677,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$5 foot long subs. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Zesto's Pizza - $5 foot long subs. - Expires May 7th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>
@@ -633,7 +694,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">30% off all large soups until May 8th!</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"El Oriental De Cuba - 30% off all large soups. - Expires May 8th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -654,7 +715,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off wine bottles for Dine-In only. Expires May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Blue Nile - Half off wine bottles for Dine-In only. - Expires May 9th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -673,7 +734,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">25% off all pickup orders over $45. Expires May 10th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Tres Gatos - 25% off all pickup orders over $45. - Expires May 10th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 10th,
                                         2021</small></p>
@@ -698,7 +759,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off wine bottles for Dine-In only. Expires May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Blue Nile - Half off wine bottles for Dine-In only. - Expires May 9th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -717,7 +778,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Canary Square - 10% off any order above $50. Pickup or Dine-In only. - Expires Apr 26th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 26th,
                                         2021</small></p>
@@ -736,7 +797,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">30% off all large soups until May 8th!</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"El Oriental De Cuba - 30% off all large soups. - Expires May 8th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -756,7 +817,7 @@ export default class Promotions extends React.Component {
                                         Expires May 5th. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"The Haven - $5 Draft Beers between 3 PM and 6 PM. - Expires May 5th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -778,7 +839,7 @@ export default class Promotions extends React.Component {
                                         noodle dish. Pickup only. </p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Noodle Barn - Any free side with purchase of large noodle dish. - Expires May 4th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 4th,
                                         2021</small></p>
@@ -797,7 +858,7 @@ export default class Promotions extends React.Component {
                                         2nd. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Ten Tables - Dollar oysters from 12PM - 5PM - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -819,7 +880,7 @@ export default class Promotions extends React.Component {
                                         Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Tres Gatos - $5 margaritas. Dine-In only. - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -836,7 +897,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">25% off all pickup orders over $45. Expires May 10th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Tres Gatos - 25% off all pickup orders over $45. - Expires May 10th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 10th,
                                         2021</small></p>
@@ -858,7 +919,7 @@ export default class Promotions extends React.Component {
                                         for pickup only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Zesto's Pizza - Buy one large pizza get one free! - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -877,7 +938,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$5 foot long subs. Expires May 7th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Zesto's Pizza - $5 foot long subs. - Expires May 7th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 7th,
                                         2021</small></p>
@@ -902,7 +963,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Dollar oysters until April 25th! Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - Dollar oysters, Dine-In only. - Expires Apr 25th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 25th,
                                         2021</small></p>
@@ -919,7 +980,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Dollar beers between 2 - 6 PM. Expires April 28th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - Dollar beers between 2 - 6 PM. - Expires Apr 28th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 28th,
                                         2021</small></p>
@@ -938,7 +999,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off King Crab Legs until May 1st. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - Half off King Crab Legs. Dine-In only. - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -957,7 +1018,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">40% off all pickup orders until May 2nd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Serafina Back Bay - 40% off all pickup orders. - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -978,7 +1039,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off on all cocktails from 2 - 6 PM. Expires May 3rd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Serafina Back Bay - Half off on all cocktails from 2 - 6 PM. - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
@@ -996,7 +1057,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">All bottle beers $2 until May 5th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - All bottle beers $2. - Expires May 5th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -1017,7 +1078,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">All small sandwiches half off with purchase of draft beer. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - All small sandwiches half off w/ purchase of draft beer. - Expires May 8th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -1034,7 +1095,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$2 off any cocktail until May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - $2 off any cocktail. - Expires May 9th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -1059,7 +1120,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Dollar beers between 2 - 6 PM. Expires April 28th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - Dollar beers between 2 - 6 PM. - Expires Apr 28th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 28th,
                                         2021</small></p>
@@ -1076,7 +1137,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">All small sandwiches half off with purchase of draft beer. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - All small sandwiches half off w/ purchase of draft beer. - Expires May 8th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 8th,
                                         2021</small></p>
@@ -1095,7 +1156,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">$2 off any cocktail until May 9th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Parish Cafe & Bar - $2 off any cocktail. - Expires May 9th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 9th,
                                         2021</small></p>
@@ -1114,7 +1175,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Dollar oysters until April 25th! Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - Dollar oysters, Dine-In only. - Expires Apr 25th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         Apr 25th,
                                         2021</small></p>
@@ -1135,7 +1196,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off King Crab Legs until May 1st. Dine-In only.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - Half off King Crab Legs. Dine-In only. - Expires May 1st, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 1st,
                                         2021</small></p>
@@ -1153,7 +1214,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">All bottle beers $2 until May 5th.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Saltie Girl - All bottle beers $2. - Expires May 5th, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 5th,
                                         2021</small></p>
@@ -1174,7 +1235,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">40% off all pickup orders until May 2nd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Serafina Back Bay - 40% off all pickup orders. - Expires May 2nd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 2nd,
                                         2021</small></p>
@@ -1191,7 +1252,7 @@ export default class Promotions extends React.Component {
                                     <p className="card-text">Half off on all cocktails from 2 - 6 PM. Expires May 3rd.</p>
                                 </div>
                                 <div className="card-footer">
-                                    <Alot/>
+                                    <Alot info={"Serafina Back Bay - Half off on all cocktails from 2 - 6 PM. - Expires May 3rd, 2021"}/>
                                     <p className="card-text" style={{textAlign:'center'}}><small className="text-muted">Expires:
                                         May 3rd,
                                         2021</small></p>
