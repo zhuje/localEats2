@@ -209,7 +209,7 @@ export default class Home extends React.Component {
                             </div>
 
                             {this.state.name !== null && (
-                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Submit </Link>
+                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Search </Link>
                             )}
 
 
