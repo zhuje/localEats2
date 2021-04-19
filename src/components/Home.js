@@ -23,7 +23,7 @@ function spotlight0() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Lone Star </p>
                     <a href={"http://deepellum-allston.com/lonestar/food.php"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Allston </small>
                 </Card.Footer>
             </Card>
@@ -35,7 +35,7 @@ function spotlight0() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Tres Gatos </p>
                     <a href={"http://www.tresgatosjp.com/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Jamaica Plain </small>
                 </Card.Footer>
             </Card>
@@ -47,7 +47,7 @@ function spotlight0() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Saltie Girl </p>
                     <a href={"https://www.saltiegirl.com/menu/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Back Bay </small>
                 </Card.Footer>
             </Card>
@@ -67,7 +67,7 @@ function spotlight1() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Ten Tables </p>
                     <a href={"https://tentables.net/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Jamaica Plains </small>
                 </Card.Footer>
             </Card>
@@ -79,7 +79,7 @@ function spotlight1() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Serfina </p>
                     <a href={"https://serafinaboston.com/menu/back-bay/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Back Bay </small>
                 </Card.Footer>
             </Card>
@@ -91,7 +91,7 @@ function spotlight1() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Mala </p>
                     <a href={"http://www.allstonmala.com/menu.html"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Allston </small>
                 </Card.Footer>
             </Card>
@@ -110,9 +110,9 @@ function spotlight2() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> The Parish Cafe </p>
                     <a href={"https://parishcafe.com/menu/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}> Back Bay  </small>
-                </Card.Footer>
+                </Card.Footer >
             </Card>
             <Card>
                 <Card.Img className="card-img-top" variant="top"
@@ -122,7 +122,7 @@ function spotlight2() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}> Lulu's </p>
                     <a href={"https://www.lulusallston.com/menu.html"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}>  Allston  </small>
                 </Card.Footer>
             </Card>
@@ -134,7 +134,7 @@ function spotlight2() {
                     <p className={"dev_card_text_style"} style={{color:"black"}}>  Blue Nile </p>
                     <a href={"https://www.bluenileincjp.com/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer style={{textAlign:'center'}}>
                     <small className="text-muted" style={{color:"black"}}>   Jamaica Plain </small>
                 </Card.Footer>
             </Card>
