@@ -66,6 +66,35 @@
 
 }
 
+.dev_background_backbay{
+    background: url(https://www.shoreexcursionsgroup.com/img/tour/CNBOPWBWTBBB-2.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.dev_background_jp{
+    background: url(https://arboretum.harvard.edu/wp-content/uploads/2020/11/Peters-Hill-November-Friedman-2.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+.dev_background_error{
+    background: url(https://static.onecms.io/wp-content/uploads/sites/28/2021/02/23/boston-massachusetts-BOSTONTG0221.jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+
+
+
 div.dev_transbox_searchResults {
     text-align: center;
     margin: 30px;

@@ -4,19 +4,20 @@ import 'reactjs-popup/dist/index.css';
 import { Dropdown, Form} from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
+
 function goBack() {
     window.history.back();
 }
 
 
-export default class Allston extends React.Component{
+export default class JP extends React.Component{
 
 
     state = {
         checkedDelivery: null,
         checkedOutdoor: null,
         showSelected: "none",
-        showAsian: true,
+        showEthiopian: true,
         showAmerican: true,
         showMexican: true,
         outdoor_filtered: false,
@@ -24,10 +25,10 @@ export default class Allston extends React.Component{
 
     };
 
-    filterAsian = () => {
+    filterEthiopian = () => {
         this.setState({
-                          showSelected: "asian",
-                          showAsian: true,
+                          showSelected: "ethiopian",
+                          showEthiopian: true,
                           showAmerican: false,
                           showMexican: false
                       });
@@ -36,7 +37,7 @@ export default class Allston extends React.Component{
     filterAmerican = () => {
         this.setState({
                           showSelected: "american",
-                          showAsian: false,
+                          showEthiopian: false,
                           showAmerican: true,
                           showMexican: false
                       });
@@ -45,7 +46,7 @@ export default class Allston extends React.Component{
     filterMexican = () => {
         this.setState({
                           showSelected: "mexican",
-                          showAsian: false,
+                          showEthiopian: false,
                           showAmerican: false,
                           showMexican: true
                       });
@@ -57,7 +58,7 @@ export default class Allston extends React.Component{
                           checkedOutdoor: false,
 
                           showSelected:"none",
-                          showAsian: true,
+                          showEthiopian: true,
                           showAmerican: true,
                           showMexican: true,
                       });
@@ -87,18 +88,16 @@ export default class Allston extends React.Component{
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
 
-
                     <button className={"btn btn-primary mb-1"}  onClick={()=> goBack()}>
                         <i className="fa fa-arrow-left" aria-hidden="true"></i>
                         &nbsp; Back
                     </button>
 
-
                     {/* JUMBOTRON */}
-                    <div className="jumbotron dev_background_allston">
+                    <div className="jumbotron dev_background_jp">
                         <div className="dev_transbox_searchResults">
                             <div className="container">
-                                <h1 className="display-4"> Allston  </h1>
+                                <h1 className="display-4"> Jamaica Plain  </h1>
                             </div>
                         </div>
                     </div>
@@ -120,8 +119,9 @@ export default class Allston extends React.Component{
                                     paddingRight: "3.375rem"
                                 }}> Eatery Type </Dropdown.Toggle>
                                 <Dropdown.Menu className="super-colors">
-                                    <Dropdown.Item  onClick={this.filterAsian}> Asian </Dropdown.Item>
+
                                     <Dropdown.Item onClick={this.filterAmerican}> American </Dropdown.Item>
+                                    <Dropdown.Item  onClick={this.filterEthiopian}> Ethiopian </Dropdown.Item>
                                     <Dropdown.Item onClick={this.filterMexican} > Mexican </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -130,8 +130,8 @@ export default class Allston extends React.Component{
                         <div>
 
                             <div className="form-check">
-                                    <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedDelivery} />
+                                <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
+                                       id="defaultCheck1" checked={this.state.checkedDelivery} />
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries that Deliver
@@ -145,7 +145,7 @@ export default class Allston extends React.Component{
                         <div>
                             <div className="form-check">
                                 <input onClick={ this.resetOutdoor } className="form-check-input checkbox" type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedOutdoor}/>
+                                       id="defaultCheck1" checked={this.state.checkedOutdoor}/>
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries with Outdoor Dining
@@ -157,7 +157,7 @@ export default class Allston extends React.Component{
                     <br/>
                     Eatery Type Currently Selected:
                     {this.state.showSelected == "none" && ( <p className="text-primary">none</p> )}
-                    {this.state.showSelected == "asian" && (<p className="text-primary"> Asian </p>)}
+                    {this.state.showSelected == "ethiopian" && (<p className="text-primary"> Ethiopian </p>)}
                     {this.state.showSelected == "american" && (<p className="text-primary"> American </p>)}
                     {this.state.showSelected == "mexican" && (<p className="text-primary"> Mexican </p>)}
 
@@ -187,13 +187,13 @@ export default class Allston extends React.Component{
                         other delivery services.
                     </p>
 
-                    {/* Card1 -- MALA */}
-                    {this.state.showAsian && (
+                    {/* Card1 -- Blue Nile */}
+                    {this.state.showEthiopian && (
                         <div className="card dev_card">
                             <div className="card-body">
                                 {/* Heading */}
-                                <h3 className="dev_title"> Mala </h3>
-                                <a href={"http://www.allstonmala.com/menu.html"} target="_blank"> View
+                                <h3 className="dev_title"> Blue Nile </h3>
+                                <a href={"https://www.bluenileincjp.com/"} target="_blank"> View
                                     Menu </a>
                                 <br/><br/>
                                 {/* Columns */}
@@ -201,18 +201,18 @@ export default class Allston extends React.Component{
                                     <div className="row">
                                         <div className="col-sm">
                                             <img className="dev_img dev_photo_radius "
-                                                 src={"https://www.yumofchina.com/wp-content/uploads/2017/07/Spicy-Sichuan-Chicken3.jpg"}
+                                                 src={"https://s3-media0.fl.yelpcdn.com/bphoto/nvH1amO4pFvFzRLZ4IKMmQ/o.jpg"}
                                                  fluid/>
                                         </div>
                                         <div className="col-sm">
                                             <p>
                                                 Eatery Type: <br/>
-                                                Asian
+                                                Ethiopian
                                             </p>
                                             <p>
                                                 Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/mala-restaurant-boston">
-                                                    3.5 out of 5 Stars (263 Reviews)
+                                                <a href="https://www.yelp.com/biz/blue-nile-restaurant-jamaica-plain?osq=blue+nile">
+                                                    4 out of 5 Stars (305 Reviews)
                                                 </a>
                                             </p>
                                             <p>
@@ -246,7 +246,7 @@ export default class Allston extends React.Component{
                                             </div>
                                             <p>
                                                 Order Online : <br/>
-                                                <a href="http://www.allstonmala.com"
+                                                <a href="https://www.bluenileincjp.com/"
                                                    target="_blank"> Direct from Restaurant </a> <br/>
                                             </p>
                                         </div>
@@ -261,9 +261,9 @@ export default class Allston extends React.Component{
                     {this.state.showAmerican && (
                         <div className="card dev_card">
                             <div className="card-body">
-                                <h3 className="dev_title"> Lulu's </h3>
+                                <h3 className="dev_title"> Ten Tables </h3>
 
-                                <a href={"https://www.lulusallston.com/menu.html"}
+                                <a href={"https://tentables.net/l"}
                                    target="_blank"> View Menu </a>
                                 <br/><br/>
                                 {/* Columns */}
@@ -271,7 +271,7 @@ export default class Allston extends React.Component{
                                     <div className="row">
                                         <div className="col-sm">
                                             <img className="dev_img dev_photo_radius"
-                                                 src={"https://www.lulusallston.com/img/luluspread-12-16-19.jpg"}
+                                                 src={"https://tentables.net/wp-content/uploads/2019/04/pasta-thursdays-ten-tables-jp.jpg"}
                                                  fluid/>
                                         </div>
                                         <div className="col-sm">
@@ -281,13 +281,13 @@ export default class Allston extends React.Component{
                                             </p>
                                             <p>
                                                 Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/lulus-allston-boston-4">
+                                                <a href="https://www.yelp.com/biz/ten-tables-jamaica-plain?osq=ten+tables">
                                                     4 out of 5 Stars (495 Reviews)
                                                 </a>
                                             </p>
                                             <p>
-                                                Hours of Operation: <br/>
-
+                                                Hours of Operation:
+                                                <p>
                                                     Sunday 10:30AM - 1AM <br/>
                                                     Monday 11:30AM - 1AM <br/>
                                                     Tuesday 11:30AM - 1AM <br/>
@@ -295,7 +295,7 @@ export default class Allston extends React.Component{
                                                     Thursday 11:30AM - 1AM <br/>
                                                     Friday 11:30AM - 1AM <br/>
                                                     Saturday 10:30AM - 1AM <br/>
-
+                                                </p>
                                             </p>
                                             <p>
                                                 Outdoor Dining Available?
@@ -316,7 +316,7 @@ export default class Allston extends React.Component{
                                             </div>
                                             <p>
                                                 Order Online : <br/>
-                                                <a href="https://lulusallston.getbento.com/online-ordering/lulus-allston/menu"
+                                                <a href="https://tentables.net/"
                                                    target="_blank"> Direct from Restaurant </a> <br/>
                                             </p>
                                         </div>
@@ -331,9 +331,9 @@ export default class Allston extends React.Component{
                     {this.state.showMexican && (
                         <div className="card dev_card">
                             <div className="card-body">
-                                <h3 className="dev_title"> Lone Star Taco Bar </h3>
+                                <h3 className="dev_title"> Tres Gatos </h3>
 
-                                <a href={"https://www.toasttab.com/lonestar-allston/v3"}
+                                <a href={"http://www.tresgatosjp.com/"}
                                    target="_blank"> View Menu </a>
                                 <br/><br/>
                                 {/* Columns */}
@@ -341,7 +341,7 @@ export default class Allston extends React.Component{
                                     <div className="row">
                                         <div className="col-sm">
                                             <img className="dev_img dev_photo_radius"
-                                                 src={"https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"}
+                                                 src={"https://s3-media0.fl.yelpcdn.com/bphoto/j_PwWHy3hE5m0R1A5SYKYg/o.jpg"}
                                                  fluid/>
                                         </div>
                                         <div className="col-sm">
@@ -351,20 +351,21 @@ export default class Allston extends React.Component{
                                             </p>
                                             <p>
                                                 Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/lone-star-taco-bar-allston">
-                                                    4 out of 5 Stars (495 Reviews)
+                                                <a href="https://www.yelp.com/biz/tres-gatos-jamaica-plain">
+                                                    4 out of 5 Stars (498 Reviews)
                                                 </a>
                                             </p>
                                             <p>
-                                                Hours of Operation: <br/>
-                                                    Sunday 11AM - 12AM <br/>
-                                                    Monday 11AM - 12AM <br/>
-                                                    Tuesday 11AM - 12AM <br/>
-                                                    Wednesday 11AM - 12AM <br/>
-                                                    Thursday 11AM - 12AM <br/>
-                                                    Friday 11AM - 12AM <br/>
-                                                    Saturday 11AM - 12AM <br/>
-
+                                                Hours of Operation:
+                                                <p>
+                                                Sunday 11AM - 12AM <br/>
+                                                Monday 11AM - 12AM <br/>
+                                                Tuesday 11AM - 12AM <br/>
+                                                Wednesday 11AM - 12AM <br/>
+                                                Thursday 11AM - 12AM <br/>
+                                                Friday 11AM - 12AM <br/>
+                                                Saturday 11AM - 12AM <br/>
+                                                </p>
                                             </p>
                                             <p>
                                                 Outdoor Dining Available?
@@ -385,7 +386,7 @@ export default class Allston extends React.Component{
                                             </div>
                                             <p>
                                                 Order Online : <br/>
-                                                <a href="https://www.toasttab.com/lonestar-allston/v3"
+                                                <a href="http://www.tresgatosjp.com/"
                                                    target="_blank"> Direct from Restaurant </a> <br/>
                                             </p>
 

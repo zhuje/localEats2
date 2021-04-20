@@ -76,7 +76,7 @@ function spotlight1() {
                           src="https://s3-media0.fl.yelpcdn.com/bphoto/bV9ednA92qFJ-Q_Mz04bYg/o.jpg"
                 />
                 <Card.Body className={"dev_card_body"}>
-                    <p className={"dev_card_text_style"} style={{color:"black"}}> Serfina </p>
+                    <p className={"dev_card_text_style"} style={{color:"black"}}> Serafina </p>
                     <a href={"https://serafinaboston.com/menu/back-bay/"} target={"_blank"}> View Menu </a>
                 </Card.Body>
                 <Card.Footer style={{textAlign:'center'}}>
@@ -209,7 +209,7 @@ export default class Home extends React.Component {
                             </div>
 
                             {this.state.name !== null && (
-                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Submit </Link>
+                                <Link to={this.state.name} className="btn btn-primary" style={{width:"33%"}}> Search </Link>
                             )}
 
 

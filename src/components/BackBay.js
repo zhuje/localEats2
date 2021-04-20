@@ -9,45 +9,45 @@ function goBack() {
 }
 
 
-export default class Allston extends React.Component{
+export default class BackBay extends React.Component{
 
 
     state = {
         checkedDelivery: null,
         checkedOutdoor: null,
         showSelected: "none",
-        showAsian: true,
+        showSeafood: true,
         showAmerican: true,
-        showMexican: true,
+        showItalian: true,
         outdoor_filtered: false,
         open_filtered: false,
 
     };
 
-    filterAsian = () => {
+    filterSeafood = () => {
         this.setState({
-                          showSelected: "asian",
-                          showAsian: true,
+                          showSelected: "seafood",
+                          showSeafood: true,
                           showAmerican: false,
-                          showMexican: false
+                          showItalian: false
                       });
     };
 
     filterAmerican = () => {
         this.setState({
                           showSelected: "american",
-                          showAsian: false,
+                          showSeafood: false,
                           showAmerican: true,
-                          showMexican: false
+                          showItalian: false
                       });
     };
 
-    filterMexican = () => {
+    filterItalian = () => {
         this.setState({
-                          showSelected: "mexican",
-                          showAsian: false,
+                          showSelected: "italian",
+                          showSeafood: false,
                           showAmerican: false,
-                          showMexican: true
+                          showItalian: true
                       });
     };
 
@@ -57,9 +57,9 @@ export default class Allston extends React.Component{
                           checkedOutdoor: false,
 
                           showSelected:"none",
-                          showAsian: true,
+                          showSeafood: true,
                           showAmerican: true,
-                          showMexican: true,
+                          showItalian: true,
                       });
 
 
@@ -78,15 +78,11 @@ export default class Allston extends React.Component{
     }
 
 
-
-
-
     render() {
 
         return(
             <div className="col-sm-12 col-md-9 dev_home_container" >
                 <div className="dev_search_title">
-
 
                     <button className={"btn btn-primary mb-1"}  onClick={()=> goBack()}>
                         <i className="fa fa-arrow-left" aria-hidden="true"></i>
@@ -94,11 +90,12 @@ export default class Allston extends React.Component{
                     </button>
 
 
+
                     {/* JUMBOTRON */}
-                    <div className="jumbotron dev_background_allston">
+                    <div className="jumbotron dev_background_backbay">
                         <div className="dev_transbox_searchResults">
                             <div className="container">
-                                <h1 className="display-4"> Allston  </h1>
+                                <h1 className="display-4"> Back Bay  </h1>
                             </div>
                         </div>
                     </div>
@@ -120,9 +117,9 @@ export default class Allston extends React.Component{
                                     paddingRight: "3.375rem"
                                 }}> Eatery Type </Dropdown.Toggle>
                                 <Dropdown.Menu className="super-colors">
-                                    <Dropdown.Item  onClick={this.filterAsian}> Asian </Dropdown.Item>
                                     <Dropdown.Item onClick={this.filterAmerican}> American </Dropdown.Item>
-                                    <Dropdown.Item onClick={this.filterMexican} > Mexican </Dropdown.Item>
+                                    <Dropdown.Item onClick={this.filterItalian} > Italian </Dropdown.Item>
+                                    <Dropdown.Item  onClick={this.filterSeafood}> Seafood </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -130,8 +127,8 @@ export default class Allston extends React.Component{
                         <div>
 
                             <div className="form-check">
-                                    <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedDelivery} />
+                                <input onClick={ this.resetDelivery } className="checkbox form-check-input " type="checkbox" value=""
+                                       id="defaultCheck1" checked={this.state.checkedDelivery} />
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries that Deliver
@@ -145,7 +142,7 @@ export default class Allston extends React.Component{
                         <div>
                             <div className="form-check">
                                 <input onClick={ this.resetOutdoor } className="form-check-input checkbox" type="checkbox" value=""
-                                           id="defaultCheck1" checked={this.state.checkedOutdoor}/>
+                                       id="defaultCheck1" checked={this.state.checkedOutdoor}/>
 
                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                     Eateries with Outdoor Dining
@@ -157,9 +154,9 @@ export default class Allston extends React.Component{
                     <br/>
                     Eatery Type Currently Selected:
                     {this.state.showSelected == "none" && ( <p className="text-primary">none</p> )}
-                    {this.state.showSelected == "asian" && (<p className="text-primary"> Asian </p>)}
+                    {this.state.showSelected == "seafood" && (<p className="text-primary"> Seafood </p>)}
                     {this.state.showSelected == "american" && (<p className="text-primary"> American </p>)}
-                    {this.state.showSelected == "mexican" && (<p className="text-primary"> Mexican </p>)}
+                    {this.state.showSelected == "italian" && (<p className="text-primary"> Italian </p>)}
 
 
 
@@ -187,13 +184,152 @@ export default class Allston extends React.Component{
                         other delivery services.
                     </p>
 
-                    {/* Card1 -- MALA */}
-                    {this.state.showAsian && (
+                    {/* Card 1  */}
+                    {this.state.showAmerican && (
+                        <div className="card dev_card">
+                            <div className="card-body">
+                                <h3 className="dev_title"> The Parish Cafe </h3>
+
+                                <a href={"https://parishcafe.com/menu/"}
+                                   target="_blank"> View Menu </a>
+                                <br/><br/>
+                                {/* Columns */}
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-sm">
+                                            <img className="dev_img dev_photo_radius"
+                                                 src={"https://parishcafe.com/wordpress/wp-content/uploads/2018/02/BuksCamb-100717-15.jpg"}
+                                                 fluid/>
+                                        </div>
+                                        <div className="col-sm">
+                                            <p>
+                                                Eatery Type:
+                                                American
+                                            </p>
+                                            <p>
+                                                Yelp Rating: <br/>
+                                                <a href="https://www.yelp.com/biz/parish-cafe-and-bar-boston?osq=parish+cafe">
+                                                    4 out of 5 Stars (1416 Reviews)
+                                                </a>
+                                            </p>
+                                            <p>
+                                                Hours of Operation:
+                                                Sunday 10:30AM - 1AM <br/>
+                                                Monday 11:30AM - 1AM <br/>
+                                                Tuesday 11:30AM - 1AM <br/>
+                                                Wednesday 11:30AM - 1AM <br/>
+                                                Thursday 11:30AM - 1AM <br/>
+                                                Friday 11:30AM - 1AM <br/>
+                                                Saturday 10:30AM - 1AM <br/>
+
+                                            </p>
+                                            <p>
+                                                Outdoor Dining Available?
+                                                <p style={{color: "green"}}> Yes </p>
+                                            </p>
+                                            <div style={{
+                                                display: "grid",
+                                                gridTemplateColumns: "repeat(3, 1fr)",
+                                                gridGap: 20
+                                            }}>
+                                                <div> Delivery: <p style={{color: "green"}}> Yes </p>
+                                                </div>
+                                                <div> Curbside Pick-Up: <p
+                                                    style={{color: "red"}}> No </p></div>
+                                                <div> Indoor Pick-up: <p
+                                                    style={{color: "green"}}> Yes </p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Order Online : <br/>
+                                                <a href="https://parishcafe.com/menu/"
+                                                   target="_blank"> Direct from Restaurant </a> <br/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+
+                    {/* Card 2 */}
+                    {this.state.showItalian && (
+                        <div className="card dev_card">
+                            <div className="card-body">
+                                <h3 className="dev_title"> Serafina </h3>
+
+                                <a href={"https://serafinaboston.com/menu/back-bay/\""}
+                                   target="_blank"> View Menu </a>
+                                <br/><br/>
+
+                                {/* Columns */}
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-sm">
+                                            <img className="dev_img dev_photo_radius"
+                                                 src={"https://s3-media0.fl.yelpcdn.com/bphoto/bV9ednA92qFJ-Q_Mz04bYg/o.jpg"}
+                                                 fluid/>
+                                        </div>
+                                        <div className="col-sm">
+                                            <p>
+                                                Eatery Type:
+                                                Italian
+                                            </p>
+                                            <p>
+                                                Yelp Rating: <br/>
+                                                <a href="https://www.yelp.com/biz/serafina-back-bay-boston?osq=serfinan">
+                                                    4 out of 5 Stars (495 Reviews)
+                                                </a>
+                                            </p>
+                                            <p>
+                                                Hours of Operation:
+                                                Sunday 11AM - 12AM <br/>
+                                                Monday 11AM - 12AM <br/>
+                                                Tuesday 11AM - 12AM <br/>
+                                                Wednesday 11AM - 12AM <br/>
+                                                Thursday 11AM - 12AM <br/>
+                                                Friday 11AM - 12AM <br/>
+                                                Saturday 11AM - 12AM <br/>
+
+                                            </p>
+                                            <p>
+                                                Outdoor Dining Available?
+                                                <p style={{color: "red"}}> No </p>
+                                            </p>
+                                            <div style={{
+                                                display: "grid",
+                                                gridTemplateColumns: "repeat(3, 1fr)",
+                                                gridGap: 20
+                                            }}>
+                                                <div> Delivery: <p style={{color: "green"}}> Yes </p>
+                                                </div>
+                                                <div> Curbside Pick-Up: <p
+                                                    style={{color: "red"}}> No </p></div>
+                                                <div> Indoor Pick-up: <p
+                                                    style={{color: "green"}}> Yes </p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Order Online : <br/>
+                                                <a href="https://serafinaboston.com/menu/back-bay/"
+                                                   target="_blank"> Direct from Restaurant </a> <br/>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Card 3 -- Saltie Girl */}
+                    {this.state.showSeafood && (
                         <div className="card dev_card">
                             <div className="card-body">
                                 {/* Heading */}
-                                <h3 className="dev_title"> Mala </h3>
-                                <a href={"http://www.allstonmala.com/menu.html"} target="_blank"> View
+                                <h3 className="dev_title"> Saltie Girl  </h3>
+                                <a href={"https://www.saltiegirl.com/menu/"} target="_blank"> View
                                     Menu </a>
                                 <br/><br/>
                                 {/* Columns */}
@@ -201,18 +337,18 @@ export default class Allston extends React.Component{
                                     <div className="row">
                                         <div className="col-sm">
                                             <img className="dev_img dev_photo_radius "
-                                                 src={"https://www.yumofchina.com/wp-content/uploads/2017/07/Spicy-Sichuan-Chicken3.jpg"}
+                                                 src={"https://images.getbento.com/accounts/2e611a9c379beef9626facce2b3ec45e/media/images/33230Saltie_Girl_61.JPG"}
                                                  fluid/>
                                         </div>
                                         <div className="col-sm">
                                             <p>
                                                 Eatery Type: <br/>
-                                                Asian
+                                                Seafood
                                             </p>
                                             <p>
                                                 Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/mala-restaurant-boston">
-                                                    3.5 out of 5 Stars (263 Reviews)
+                                                <a href="https://www.yelp.com/biz/saltie-girl-boston?osq=satlie">
+                                                    4.5 out of 5 Stars (1154 Reviews)
                                                 </a>
                                             </p>
                                             <p>
@@ -246,7 +382,7 @@ export default class Allston extends React.Component{
                                             </div>
                                             <p>
                                                 Order Online : <br/>
-                                                <a href="http://www.allstonmala.com"
+                                                <a href="https://www.saltiegirl.com/menu/"
                                                    target="_blank"> Direct from Restaurant </a> <br/>
                                             </p>
                                         </div>
@@ -256,145 +392,6 @@ export default class Allston extends React.Component{
                         </div>
                     )}
 
-
-                    {/* Card2 */}
-                    {this.state.showAmerican && (
-                        <div className="card dev_card">
-                            <div className="card-body">
-                                <h3 className="dev_title"> Lulu's </h3>
-
-                                <a href={"https://www.lulusallston.com/menu.html"}
-                                   target="_blank"> View Menu </a>
-                                <br/><br/>
-                                {/* Columns */}
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <img className="dev_img dev_photo_radius"
-                                                 src={"https://www.lulusallston.com/img/luluspread-12-16-19.jpg"}
-                                                 fluid/>
-                                        </div>
-                                        <div className="col-sm">
-                                            <p>
-                                                Eatery Type: <br/>
-                                                American
-                                            </p>
-                                            <p>
-                                                Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/lulus-allston-boston-4">
-                                                    4 out of 5 Stars (495 Reviews)
-                                                </a>
-                                            </p>
-                                            <p>
-                                                Hours of Operation: <br/>
-
-                                                    Sunday 10:30AM - 1AM <br/>
-                                                    Monday 11:30AM - 1AM <br/>
-                                                    Tuesday 11:30AM - 1AM <br/>
-                                                    Wednesday 11:30AM - 1AM <br/>
-                                                    Thursday 11:30AM - 1AM <br/>
-                                                    Friday 11:30AM - 1AM <br/>
-                                                    Saturday 10:30AM - 1AM <br/>
-
-                                            </p>
-                                            <p>
-                                                Outdoor Dining Available?
-                                                <p style={{color: "green"}}> Yes </p>
-                                            </p>
-                                            <div style={{
-                                                display: "grid",
-                                                gridTemplateColumns: "repeat(3, 1fr)",
-                                                gridGap: 20
-                                            }}>
-                                                <div> Delivery: <p style={{color: "green"}}> Yes </p>
-                                                </div>
-                                                <div> Curbside Pick-Up: <p
-                                                    style={{color: "red"}}> No </p></div>
-                                                <div> Indoor Pick-up: <p
-                                                    style={{color: "green"}}> Yes </p>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Order Online : <br/>
-                                                <a href="https://lulusallston.getbento.com/online-ordering/lulus-allston/menu"
-                                                   target="_blank"> Direct from Restaurant </a> <br/>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-
-                    {/* Card3 */}
-                    {this.state.showMexican && (
-                        <div className="card dev_card">
-                            <div className="card-body">
-                                <h3 className="dev_title"> Lone Star Taco Bar </h3>
-
-                                <a href={"https://www.toasttab.com/lonestar-allston/v3"}
-                                   target="_blank"> View Menu </a>
-                                <br/><br/>
-                                {/* Columns */}
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <img className="dev_img dev_photo_radius"
-                                                 src={"https://bostonglobe-prod.cdn.arcpublishing.com/resizer/Cf11fCo5bHMl8UvGOoaztiJK1XQ=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/X35UOLSYYYI6DJ64HNRBUTHPCU.jpg"}
-                                                 fluid/>
-                                        </div>
-                                        <div className="col-sm">
-                                            <p>
-                                                Eatery Type: <br/>
-                                                Mexican
-                                            </p>
-                                            <p>
-                                                Yelp Rating: <br/>
-                                                <a href="https://www.yelp.com/biz/lone-star-taco-bar-allston">
-                                                    4 out of 5 Stars (495 Reviews)
-                                                </a>
-                                            </p>
-                                            <p>
-                                                Hours of Operation: <br/>
-                                                    Sunday 11AM - 12AM <br/>
-                                                    Monday 11AM - 12AM <br/>
-                                                    Tuesday 11AM - 12AM <br/>
-                                                    Wednesday 11AM - 12AM <br/>
-                                                    Thursday 11AM - 12AM <br/>
-                                                    Friday 11AM - 12AM <br/>
-                                                    Saturday 11AM - 12AM <br/>
-
-                                            </p>
-                                            <p>
-                                                Outdoor Dining Available?
-                                                <p style={{color: "red"}}> No </p>
-                                            </p>
-                                            <div style={{
-                                                display: "grid",
-                                                gridTemplateColumns: "repeat(3, 1fr)",
-                                                gridGap: 20
-                                            }}>
-                                                <div> Delivery: <p style={{color: "green"}}> Yes </p>
-                                                </div>
-                                                <div> Curbside Pick-Up: <p
-                                                    style={{color: "red"}}> No </p></div>
-                                                <div> Indoor Pick-up: <p
-                                                    style={{color: "green"}}> Yes </p>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Order Online : <br/>
-                                                <a href="https://www.toasttab.com/lonestar-allston/v3"
-                                                   target="_blank"> Direct from Restaurant </a> <br/>
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
 
                 </div>
             </div>

@@ -8,6 +8,10 @@ import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
 import Allston from "./components/Allston"
+import BackBay from "./components/BackBay"
+import JP from "./components/JP"
+import Error from "./components/Error";
+
 
 import Popup from "reactjs-popup";
 import {Form, FormControl, Nav, Navbar, Button} from "react-bootstrap";
@@ -56,7 +60,7 @@ export default class App extends React.Component {
                                placeholder="Search for a Neighborhood (Allston) " aria-label="Search"/>
                         <ul className="navbar-nav px-3 d-none d-md-block">
                             <li className="nav-item text-nowrap ">
-                                <Link to="/search" className="btn btn-primary"> Search </Link>
+                                <Link to="/error" className="btn btn-primary"> Search </Link>
                             </li>
                         </ul>
 
@@ -144,6 +148,9 @@ export default class App extends React.Component {
                         <Route path="/map" exact component={Map}/>
                         <Route path="/stories" exact component={Stories}/>
                         <Route path="/allston" exact component={Allston}/>
+                        <Route path="/backbay" exact component={BackBay}/>
+                        <Route path="/jp" exact component={JP}/>
+                        <Route path="/error" exact component={Error}/>
 
                     </div>
                 </div>
