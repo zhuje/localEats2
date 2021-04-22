@@ -1,0 +1,14 @@
+@media all and (min-width: 480px) {
+    .Login {
+        padding: 10px;
+    }
+}
+
+.dev_background_login{
+    background: url(https://idec-displays.com/wp-content/uploads/2018/11/The-Boston-skyline-and-Fort-Point-Channel-at-night-from-Fan-Pier-Park-Boston-Massachusetts..jpg)  ;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 80%;
+
+}

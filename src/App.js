@@ -8,6 +8,8 @@ import SearchResult from "./components/SearchResult"
 import Map from "./components/Map";
 import Stories from "./components/Stories"
 import Allston from "./components/Allston"
+import Login from "./components/Login"
+import Signup from "./components/Signup";
 import BackBay from "./components/BackBay"
 import JP from "./components/JP"
 import Error from "./components/Error";
@@ -35,17 +37,17 @@ export default class App extends React.Component {
                                     <Nav.Link className="dev_hamburger_nav-link" href="home">
                                         <i className="fa fa-home" aria-hidden="true" ></i>
                                         &nbsp;
-                                        Navigate Home
+                                        Home
                                     </Nav.Link>
                                     <Nav.Link className="dev_hamburger_nav-link" href="#link">
                                         <i className="feather fa fa-money " aria-hidden="true"></i>
                                         &nbsp;
-                                        Find Promotions
+                                        Promotions
                                     </Nav.Link>
                                     <Nav.Link className="dev_hamburger_nav-link" href="#link">
                                         <i className="fa fa-user-circle-o" aria-hidden="true"></i>
                                         &nbsp;
-                                        Edit Profile
+                                        Preferences
                                     </Nav.Link>
                                 </Nav>
                                 <Form className="dev_hamburger_nav-link" inline>
@@ -56,7 +58,7 @@ export default class App extends React.Component {
                             </div>
                         </Navbar.Collapse>
                         {/* Search Bar */}
-                        <input className="form-control form-control-dark w-100 d-none d-md-block " type="text"
+                        <input name="searchTxt" className="form-control form-control-dark w-100 d-none d-md-block " type="text"
                                placeholder="Search for a Neighborhood (Allston) " aria-label="Search"/>
                         <ul className="navbar-nav px-3 d-none d-md-block">
                             <li className="nav-item text-nowrap ">
@@ -100,16 +102,16 @@ export default class App extends React.Component {
                                                     style={{height: '75px'}}>
                                                 <i className="fa fa-user-circle-o"
                                                    aria-hidden="true"></i>
-                                                <h4>Profile</h4>
+                                                <h4>Preferences</h4>
                                             </button>
                                         </a>
                                     </li>
                                     {/* Logout */}
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">
+                                        <a className="nav-link" href="login">
                                             <button className="btn btn-outline-primary btn-sm btn-block"
                                                     style={{height: '75px'}}>
-                                                <i className="fa fa-sign-out"
+                                                <i className="fa fa-sign-in"
                                                    aria-hidden="true"></i>
                                                 <h4>Log In</h4>
                                             </button>
@@ -148,6 +150,8 @@ export default class App extends React.Component {
                         <Route path="/map" exact component={Map}/>
                         <Route path="/stories" exact component={Stories}/>
                         <Route path="/allston" exact component={Allston}/>
+                        <Route exact path="/login"><Login /></Route>
+                        <Route exact path="/signup"><Signup /></Route>
                         <Route path="/backbay" exact component={BackBay}/>
                         <Route path="/jp" exact component={JP}/>
                         <Route path="/error" exact component={Error}/>

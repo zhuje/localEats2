@@ -1,9 +1,48 @@
 import React from "react";
 import "../style/style.profile.css"
-import Button from "react-bootstrap/Button";
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import Card from "react-bootstrap/Card";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+function MyVerticallyCenteredModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-center">
+                    Preferences saved!
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
+function Helper() {
+    const [modalShow, setModalShow] = React.useState(false);
+
+    function helpMe2() {
+        setModalShow(true);
+    }
+
+    return (
+        <>
+            <button type="button"
+                    className="btn btn-primary" style={{width:'100%', height: '200%'}} onClick={helpMe2}>Save</button>
+
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+        </>
+    );
+}
 
 export default class Profile extends React.Component {
     render() {
@@ -11,10 +50,9 @@ export default class Profile extends React.Component {
             <div className="col-sm-12 col-md-9">
                 <div className="dev_background">
                     <div className="dev_transbox">
-                        <h1 className="dev_title"> Set up your profile </h1>
-                        <p> Use this window to select your preferences and save them to your
-                            profile.
-                            This helps us recommend eatery choices tailored to your interests!
+                        <h1 className="dev_title"> Establish your preferences </h1>
+                        <p> Use this window to select your preferences.
+                            This helps us recommend eateries tailored to your interests!
                         </p>
                         <div className={"rowC"}>
                             <div className="col">
@@ -75,37 +113,7 @@ export default class Profile extends React.Component {
 
                             </div>
                         </div>
-                        <div className="submit">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;
-                            <Popup trigger={<Button variant="primary"> Submit </Button>}
-                                   position="left center">
-                                <div> This button will save the user's preferences in future
-                                    implementations.
-                                </div>
-                            </Popup>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;
-                            <Popup trigger={<Button variant="danger"> Reset </Button>}
-                                   position="top">
-                                <div> This button will reset the user's preferences back to the
-                                    default
-                                    settings, which would erase each of their selections.
-                                </div>
-                            </Popup>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;
-                            <Popup trigger={<Button variant="info"> Saved Promotions </Button>}
-                                   position="right center">
-                                <div> This button will allow the user to check out each promotion
-                                    they
-                                    have saved to their profile from the promotions tab.
-                                </div>
-                            </Popup>
-                        </div>
+                        <Helper/>
                     </div>
                 </div>
             </div>
